@@ -58,10 +58,12 @@ abstract class Animal(name: String, weight: Int, energy: Int ):AgedAnimal() {
         }
     }
     //Рождение нового животного
-    abstract fun makeChild():Animal
-//    {
-//        return object {}
-//    }
+    open fun makeChild():Animal
+    {
+        return object:Animal(name,weight,energy) {
+            override val maxAge: Int = this@Animal.maxAge
+        }
+    }
 //    {
 //        return Animal(name, maxAge,
 //                weight = Random.nextInt(1,5),

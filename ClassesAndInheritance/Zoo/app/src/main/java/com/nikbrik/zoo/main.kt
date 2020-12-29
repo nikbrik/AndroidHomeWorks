@@ -20,6 +20,8 @@ fun main() {
 //            newAnimal = Animal("Лошадь", 10, 4, 10)
 //        makeDelay()
 //    }
+
+
 }
 
 fun makeDelay(){
