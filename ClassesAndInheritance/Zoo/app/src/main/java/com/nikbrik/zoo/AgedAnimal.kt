@@ -1,5 +1,7 @@
 package com.nikbrik.zoo
 
-abstract class AgedAnimal {
-    abstract val maxAge:Int
+import kotlin.random.Random
+
+abstract class AgedAnimal (){
+    open val maxAge:Int = Random.nextInt(10)+1
 }

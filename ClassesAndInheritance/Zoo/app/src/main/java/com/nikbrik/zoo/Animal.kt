@@ -3,11 +3,6 @@ package com.nikbrik.zoo
 import kotlin.random.Random
 
 abstract class Animal(name: String, weight: Int, energy: Int ):AgedAnimal() {
-
-    init {
-        println("Рождено животное $name. Срок жизни $maxAge, вес $weight, запас энергии $energy")
-    }
-
     var energy: Int = energy
         private set(energy: Int){field = energy}
         get(){return field}
@@ -21,7 +16,7 @@ abstract class Animal(name: String, weight: Int, energy: Int ):AgedAnimal() {
     val isTooOld: Boolean
         get() {
             if (age>=maxAge){
-                println("Животное $name умерло")
+                println("$name умерло")
                 return true
             }
             return false
@@ -62,11 +57,13 @@ abstract class Animal(name: String, weight: Int, energy: Int ):AgedAnimal() {
     {
         return object:Animal(name,weight,energy) {
             override val maxAge: Int = this@Animal.maxAge
+            init {
+                printChildInfo()
+            }
         }
     }
-//    {
-//        return Animal(name, maxAge,
-//                weight = Random.nextInt(1,5),
-//                energy = Random.nextInt(1,10))
-//    }
+    protected fun printChildInfo(){
+        println("Рождено ${name.toLowerCase()}. Срок жизни $maxAge, вес $weight, запас энергии $energy")
+    }
+
 }
