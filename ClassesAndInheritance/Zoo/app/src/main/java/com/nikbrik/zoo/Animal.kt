@@ -2,14 +2,13 @@ package com.nikbrik.zoo
 
 import kotlin.random.Random
 
-abstract class Animal(name: String, weight: Int, energy: Int ):AgedAnimal() {
+abstract class Animal(val name: String, weight: Int, energy: Int ):AgedAnimal() {
     var energy: Int = energy
         private set(energy: Int){field = energy}
         get(){return field}
     var weight: Int = weight
         private set(weight: Int){field = weight}
         get(){return field}
-    val name: String = name
     var age: Int = 0
         private set(age: Int){field = age}
         get(){return field}
@@ -55,7 +54,10 @@ abstract class Animal(name: String, weight: Int, energy: Int ):AgedAnimal() {
     //Рождение нового животного
     open fun makeChild():Animal
     {
-        return object:Animal(name,weight,energy) {
+        return object:Animal(name,
+                weight = Random.nextInt(5)+1,
+                energy = Random.nextInt(10)+1)
+        {
             override val maxAge: Int = this@Animal.maxAge
             init {
                 printChildInfo()
