@@ -59,7 +59,7 @@ class Person(val height:Int, val weight:Int, val name:String) {
     }
 
     override fun toString() = name
+    //override fun toString(): String {
+    //        return "Person(name='$name', height=$height, weight=$weight, pets=$pets)"
+    //}
 }
-//override fun toString(): String {
-//        return "Person(name='$name', height=$height, weight=$weight, pets=$pets)"
-//}
