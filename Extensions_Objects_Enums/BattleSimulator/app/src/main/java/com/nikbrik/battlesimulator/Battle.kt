@@ -6,6 +6,10 @@ class Battle(warriorCount:Int){
     val isCompleted:Boolean
         get() = firstTeam.getWarriorCount()<=0 || secondTeam.getWarriorCount()<=0
 
-    private fun getBattleState():BattleState {return BattleState.Progress()}
+    private fun getBattleState():BattleState {return if(firstTeam.getWarriorCount()<=0 && secondTeam.getWarriorCount()<=0) BattleState.Draw()
+        else if(firstTeam.getWarriorCount()<=0) BattleState.SecondTeamWin()
+        else if(secondTeam.getWarriorCount()<=0) BattleState.FirstTeamWin()
+        else BattleState.Progress()
+    }
     fun nextIteration(){}
 }
