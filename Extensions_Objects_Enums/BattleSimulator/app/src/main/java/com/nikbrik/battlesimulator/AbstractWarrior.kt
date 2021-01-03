@@ -18,6 +18,8 @@ abstract class AbstractWarrior(
         }
     }
 
+    override val isKilled: Boolean get() = hitPoints<=0
+
     override fun takeDamage(damage: Int) {
         hitPoints-=damage
     }
