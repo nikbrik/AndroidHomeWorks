@@ -8,13 +8,12 @@ enum class Ammo (
     private val criticalStrikeRatio:Int){
 
     PISTOL(1,2,2),
-    RIFLE(3,4,3),
+    RIFLE(8,5,3),
     MACHINEGUN(7,1,5);
 
     fun getCurrentDamage():Int {
         return if(criticalStrikeChance.isProbably()) damage*criticalStrikeRatio else damage
     }
-
 }
 
 fun Int.isProbably():Boolean{

@@ -5,16 +5,25 @@ abstract class AbstractWarrior(
     override val chanceToAvoidBeingHit: Int,
     private val accuracy:Int,
     private val weapon: AbstractWeapon,
-
 ):Warrior {
-    private var hitPoints = maxHitPoints
+    abstract val name:String
+
+    var hitPoints:Int = maxHitPoints
+        get() {return field}
+        private set(value) {field=value}
     override fun attack(warrior: Warrior) {
         with(weapon) {
-            if (clipIsEmpty) reload()
+            if (clipIsEmpty) {
+                reload()
+                println("Перезарядка")
+            }
             else getBullets().forEach(){
                 if ((accuracy-warrior.chanceToAvoidBeingHit).isProbably())
-                    warrior.takeDamage(it.getCurrentDamage())
+                    warrior.takeDamage(it.getCurrentDamage().also {
+                        damage:Int-> println("Нанесен урон $damage")})
+                else println("Промах")
             }
+            makeDelay()
         }
     }
 
@@ -23,4 +32,31 @@ abstract class AbstractWarrior(
     override fun takeDamage(damage: Int) {
         hitPoints-=damage
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as AbstractWarrior
+
+        if (maxHitPoints != other.maxHitPoints) return false
+        if (chanceToAvoidBeingHit != other.chanceToAvoidBeingHit) return false
+        if (accuracy != other.accuracy) return false
+        if (weapon != other.weapon) return false
+        if (name != other.name) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = maxHitPoints
+        result = 31 * result + chanceToAvoidBeingHit
+        result = 31 * result + accuracy
+        result = 31 * result + weapon.hashCode()
+        result = 31 * result + name.hashCode()
+        return result
+    }
+    override fun toString() = name
+
+    fun getAmmoCount():Int = weapon.ammo.count()
 }

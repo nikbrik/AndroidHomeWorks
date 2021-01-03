@@ -1,8 +1,35 @@
 package com.nikbrik.battlesimulator
 
 sealed class BattleState{
-    class Progress:BattleState()
-    class FirstTeamWin:BattleState()
-    class SecondTeamWin:BattleState()
-    class Draw:BattleState()
+    class Progress(val battle: Battle):BattleState(){
+        override fun toString(): String {
+            var returnString = "Состояние команды 1:"+System.lineSeparator()
+            var warriors = battle.firstTeam.warriors
+            warriors.forEach(){
+                returnString+="$it HP=${it.hitPoints}; Магазин = ${it.getAmmoCount()} ${if(it.isKilled) "Мёртв" else "Жив"}"+System.lineSeparator()
+            }
+            returnString += "Состояние команды 2:"+System.lineSeparator()
+            warriors = battle.secondTeam.warriors
+            warriors.forEach(){
+                returnString+="$it HP=${it.hitPoints}; Магазин = ${it.getAmmoCount()} ${if(it.isKilled) "Мёртв" else "Жив"}"+System.lineSeparator()
+            }
+
+            return returnString
+        }
+    }
+    class FirstTeamWin:BattleState(){
+        override fun toString(): String {
+            return "Команда 1 победила"
+        }
+    }
+    class SecondTeamWin:BattleState(){
+        override fun toString(): String {
+            return "Команда 2 победила"
+        }
+    }
+    class Draw:BattleState(){
+        override fun toString(): String {
+            return "Ничья. Все погибли."
+        }
+    }
 }
