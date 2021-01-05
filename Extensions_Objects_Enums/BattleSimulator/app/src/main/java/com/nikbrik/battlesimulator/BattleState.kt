@@ -1,19 +1,12 @@
 package com.nikbrik.battlesimulator
 
 sealed class BattleState{
-    class Progress(val battle: Battle):BattleState(){
+    class Progress(private val battle: Battle):BattleState(){
         override fun toString(): String {
             var returnString = "Состояние команды 1:"+System.lineSeparator()
-            var warriors = battle.firstTeam.warriors
-            warriors.forEach(){
-                returnString+="$it HP=${it.hitPoints}; Магазин = ${it.getAmmoCount()} ${if(it.isKilled) "Мёртв" else "Жив"}"+System.lineSeparator()
-            }
+            returnString += battle.getFirstTeamWarriorsState()+System.lineSeparator()
             returnString += "Состояние команды 2:"+System.lineSeparator()
-            warriors = battle.secondTeam.warriors
-            warriors.forEach(){
-                returnString+="$it HP=${it.hitPoints}; Магазин = ${it.getAmmoCount()} ${if(it.isKilled) "Мёртв" else "Жив"}"+System.lineSeparator()
-            }
-
+            returnString += battle.getSecondTeamWarriorsState()+System.lineSeparator()
             return returnString
         }
     }

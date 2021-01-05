@@ -3,8 +3,10 @@ package com.nikbrik.battlesimulator
 import kotlin.random.Random
 
 class Battle(warriorCount:Int){
-    val firstTeam:Team = Team(1,warriorCount)
-    val secondTeam:Team = Team(2,warriorCount)
+
+    private val firstTeam:Team = Team(1,warriorCount)
+    private val secondTeam:Team = Team(2,warriorCount)
+
     val isCompleted:Boolean
         get() = firstTeam.getWarriorCount()<=0 || secondTeam.getWarriorCount()<=0
 
@@ -15,42 +17,34 @@ class Battle(warriorCount:Int){
         else if(secondTeam.getWarriorCount()<=0) BattleState.FirstTeamWin()
         else BattleState.Progress(this)
     }
+
+    fun getFirstTeamWarriorsState() = firstTeam.getWarriorsState()
+    fun getSecondTeamWarriorsState() = secondTeam.getWarriorsState()
+
     fun nextIteration(){
-        firstTeam.warriors.shuffle()
-        secondTeam.warriors.shuffle()
-        val aliveWarriorsOfFirstTeam = firstTeam.warriors.filter{!it.isKilled}
-        val aliveWarriorsOfSecondTeam = secondTeam.warriors.filter{!it.isKilled}
-        var firstTeamTurnCount = 0
-        var secondTeamTurnCount = 0
-        while (!(firstTeamTurnCount>aliveWarriorsOfFirstTeam.count()-1
-        && secondTeamTurnCount>aliveWarriorsOfSecondTeam.count()-1)){
+        firstTeam.shuffleWarriors()
+        secondTeam.shuffleWarriors()
+        firstTeam.turnCount = 0
+        secondTeam.turnCount = 0
+        while (!(firstTeam.turnsOver() && secondTeam.turnsOver())){
+            teamAttack(firstTeam,secondTeam)
+            teamAttack(secondTeam,firstTeam)
+            firstTeam.turnCount++
+            secondTeam.turnCount++
+        }
+    }
 
-            with(aliveWarriorsOfFirstTeam){
-                if(firstTeamTurnCount<count())
-                    get(firstTeamTurnCount).run {
-                        if (!isKilled) {
-                            val attackedEnemy = aliveWarriorsOfSecondTeam[Random.nextInt(aliveWarriorsOfSecondTeam.count())]
-                            println("$this атакует $attackedEnemy")
-                            makeDelay()
-                            attack(attackedEnemy)
-                        }
+    private fun teamAttack(attackTeam:Team, defenderTeam:Team){
+        with(attackTeam.getAliveWarriors()){
+            if(!attackTeam.turnsOver() && defenderTeam.getAliveWarriorsCount()>0)
+                get(attackTeam.turnCount).run { //живой воин, у которого находится текущий ход
+                    if (!isKilled) {
+                        val enemyWarrior = defenderTeam.randomAliveWarrior()
+                        println("$this атакует $enemyWarrior")
+                        makeDelay()
+                        attack(enemyWarrior)
                     }
-            }
-
-            with(aliveWarriorsOfSecondTeam){
-                if(secondTeamTurnCount<count())
-                    get(secondTeamTurnCount).run {
-                        if (!isKilled) {
-                            val attackedEnemy = aliveWarriorsOfFirstTeam[Random.nextInt(aliveWarriorsOfFirstTeam.count())]
-                            println("$this атакует $attackedEnemy")
-                            makeDelay()
-                            attack(attackedEnemy)
-                        }
-                    }
-            }
-
-            firstTeamTurnCount++
-            secondTeamTurnCount++
+                }
         }
     }
 }

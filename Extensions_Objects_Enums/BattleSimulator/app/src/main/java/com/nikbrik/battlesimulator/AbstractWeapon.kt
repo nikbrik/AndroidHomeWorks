@@ -19,23 +19,22 @@ abstract class AbstractWeapon(
         val returnBullets = mutableListOf<Ammo>()
         return when(fireType){
             is FireType.SingleMode -> {
-                    if (ammo.isNotEmpty()) {
-                        val firstBullet = ammo.first()
-                        returnBullets.add(firstBullet)
-                        ammo.remove(firstBullet)
-                }
+                getBullet(returnBullets)
                 returnBullets
             }
             is FireType.BurstMode -> {
                 for (i in 1..fireType.queueSize) {
-                    if (ammo.isNotEmpty()) {
-                        val firstBullet = ammo.first()
-                        returnBullets.add(firstBullet)
-                        ammo.remove(firstBullet)
-                    }
+                    getBullet(returnBullets)
                 }
                 returnBullets
             }
+        }
+    }
+    private fun getBullet(returnBullets:MutableList<Ammo>) {
+        if (ammo.isNotEmpty()) {
+            val firstBullet = ammo.first()
+            returnBullets.add(firstBullet)
+            ammo.remove(firstBullet)
         }
     }
 }
