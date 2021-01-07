@@ -35,6 +35,8 @@ abstract class AbstractWeapon(
             val firstBullet = ammo.first()
             returnBullets.add(firstBullet)
             ammo.remove(firstBullet)
+        }else{
+            throw NoAmmoException(returnBullets)
         }
     }
 }

@@ -1,7 +1,5 @@
 package com.nikbrik.battlesimulator
 
-import kotlin.random.Random
-
 class Battle(warriorCount:Int){
 
     private val firstTeam:Team = Team(1,warriorCount)
