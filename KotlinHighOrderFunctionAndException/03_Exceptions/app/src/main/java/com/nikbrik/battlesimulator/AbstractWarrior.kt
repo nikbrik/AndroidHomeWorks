@@ -14,24 +14,22 @@ abstract class AbstractWarrior(
     override fun attack(warrior: Warrior) {
         with(weapon) {
             try{
-                getBullets().forEach(){
-                    if ((accuracy-warrior.chanceToAvoidBeingHit).isProbably())
-                        warrior.takeDamage(it.getCurrentDamage().also {
-                            damage:Int-> println("Нанесен урон $damage")})
-                    else println("Промах")
-                }
+                useAmmoOnWarrior(warrior, getBullets())
             }
             catch(e:NoAmmoException){
-                e.getAmmo().forEach(){
-                    if ((accuracy-warrior.chanceToAvoidBeingHit).isProbably())
-                        warrior.takeDamage(it.getCurrentDamage().also {
-                                damage:Int-> println("Нанесен урон $damage")})
-                    else println("Промах")
-                }
+                useAmmoOnWarrior(warrior, e.getAmmo())
                 reload()
                 println("Перезарядка")
             }
             makeDelay()
+        }
+    }
+    private fun useAmmoOnWarrior(warrior: Warrior, ammo:List<Ammo>){
+        ammo.forEach(){
+            if ((accuracy-warrior.chanceToAvoidBeingHit).isProbably())
+                warrior.takeDamage(it.getCurrentDamage().also {
+                    damage:Int-> println("Нанесен урон $damage")})
+            else println("Промах")
         }
     }
 
