@@ -19,8 +19,9 @@ object Weapons {
                 reload()
             }
 
-            override fun createAmmo() :Ammo {
-                return Ammo.RIFLE}
+            override fun createAmmo(): Ammo {
+                return Ammo.RIFLE
+            }
         }
     }
 
