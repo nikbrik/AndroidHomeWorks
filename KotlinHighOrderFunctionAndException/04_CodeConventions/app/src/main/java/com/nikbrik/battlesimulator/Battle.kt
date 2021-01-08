@@ -1,6 +1,8 @@
 package com.nikbrik.battlesimulator
 
-class Battle(warriorCount: Int) {
+class Battle(warriorCount:Int)
+
+{
 
     private val firstTeam: Team = Team(1, warriorCount)
     private val secondTeam: Team = Team(2, warriorCount)
