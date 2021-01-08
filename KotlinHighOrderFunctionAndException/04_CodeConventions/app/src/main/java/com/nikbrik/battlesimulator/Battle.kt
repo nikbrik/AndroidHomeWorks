@@ -6,7 +6,6 @@ class Battle(warriorCount:Int)
 
 
 
-
 {
 
 
