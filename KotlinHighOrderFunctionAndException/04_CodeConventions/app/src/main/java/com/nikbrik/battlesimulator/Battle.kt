@@ -3,7 +3,6 @@ package com.nikbrik.battlesimulator
 class Battle(warriorCount:Int)
 
 
-
 {
 
 
