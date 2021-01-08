@@ -28,8 +28,7 @@ class Battle(warriorCount: Int) {
             teamAttack(firstTeam, secondTeam)
             teamAttack(secondTeam, firstTeam)
             firstTeam.turnCount++
-            secondTeam.turnCount++
-        }
+            secondTeam.turnCount++}
     }
 
     private fun teamAttack(attackTeam: Team, defenderTeam: Team) {
