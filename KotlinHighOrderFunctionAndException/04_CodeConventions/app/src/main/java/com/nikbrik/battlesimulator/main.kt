@@ -6,14 +6,14 @@ fun main() {
     println("Введите количество войнов в команде:")
     readLine()?.toIntOrNull()?.let {
         val battle = Battle(it)
-        while(!battle.isCompleted){
+        while (!battle.isCompleted) {
             battle.nextIteration()
             println(battle.getBattleState())
             makeDelay()
         }
-    }?:run{ println("Введено некорректное число")}
+    } ?: run { println("Введено некорректное число") }
 }
 
-fun makeDelay(){
+fun makeDelay() {
     sleep(1)
 }

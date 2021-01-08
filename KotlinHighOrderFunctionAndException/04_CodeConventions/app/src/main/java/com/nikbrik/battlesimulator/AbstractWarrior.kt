@@ -1,22 +1,26 @@
 package com.nikbrik.battlesimulator
 
 abstract class AbstractWarrior(
-    private val maxHitPoints:Int,
+    private val maxHitPoints: Int,
     override val chanceToAvoidBeingHit: Int,
-    private val accuracy:Int,
+    private val accuracy: Int,
     private val weapon: AbstractWeapon,
-):Warrior {
-    abstract val name:String
+) : Warrior {
+    abstract val name: String
 
-    var hitPoints:Int = maxHitPoints
-        get() {return field}
-        private set(value) {field=value}
+    var hitPoints: Int = maxHitPoints
+        get() {
+            return field
+        }
+        private set(value) {
+            field = value
+        }
+
     override fun attack(warrior: Warrior) {
         with(weapon) {
-            try{
+            try {
                 useAmmoOnWarrior(warrior, getBullets())
-            }
-            catch(e:NoAmmoException){
+            } catch (e: NoAmmoException) {
                 useAmmoOnWarrior(warrior, e.getAmmo())
                 reload()
                 println("Перезарядка")
@@ -24,19 +28,23 @@ abstract class AbstractWarrior(
             makeDelay()
         }
     }
-    private fun useAmmoOnWarrior(warrior: Warrior, ammo:List<Ammo>){
-        ammo.forEach(){
-            if ((accuracy-warrior.chanceToAvoidBeingHit).isProbably())
-                warrior.takeDamage(it.getCurrentDamage().also {
-                    damage:Int-> println("Нанесен урон $damage")})
+
+    private fun useAmmoOnWarrior(warrior: Warrior, ammo: List<Ammo>) {
+        ammo.forEach() {
+            if ((accuracy - warrior.chanceToAvoidBeingHit).isProbably())
+                warrior.takeDamage(
+                    it.getCurrentDamage().also { damage: Int ->
+                        println("Нанесен урон $damage")
+                    }
+                )
             else println("Промах")
         }
     }
 
-    override val isKilled: Boolean get() = hitPoints<=0
+    override val isKilled: Boolean get() = hitPoints <= 0
 
     override fun takeDamage(damage: Int) {
-        hitPoints-=damage
+        hitPoints -= damage
     }
 
     override fun equals(other: Any?): Boolean {
@@ -62,7 +70,8 @@ abstract class AbstractWarrior(
         result = 31 * result + name.hashCode()
         return result
     }
+
     override fun toString() = name
 
-    fun getAmmoCount():Int = weapon.ammo.count()
+    fun getAmmoCount(): Int = weapon.ammo.count()
 }
