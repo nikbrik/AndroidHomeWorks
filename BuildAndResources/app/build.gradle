@@ -34,6 +34,7 @@ android {
         }
     }
 
+    flavorDimensions "main"
     productFlavors {
         free {
             applicationIdSuffix ".free"
