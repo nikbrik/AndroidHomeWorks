@@ -25,6 +25,7 @@ android {
             versionNameSuffix "-release"
         }
         qa {
+            initWith debug
             applicationIdSuffix ".qa"
             versionNameSuffix "-qa"
         }
