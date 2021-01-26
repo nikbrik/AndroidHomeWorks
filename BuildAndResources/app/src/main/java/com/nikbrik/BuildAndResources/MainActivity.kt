@@ -1,8 +1,8 @@
 package com.nikbrik.BuildAndResources
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +14,6 @@ class MainActivity : AppCompatActivity() {
         |versionCode = ${BuildConfig.VERSION_CODE}
         |versionName = ${BuildConfig.VERSION_NAME}
         |applicationId = ${BuildConfig.APPLICATION_ID}
-        |""".trimMargin()
-        .also { findViewById<TextView>(R.id.mainText).text = it }
+        |""".trimMargin().also { findViewById<TextView>(R.id.mainText).text = it }
     }
 }
