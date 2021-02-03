@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">ViewAndLayout</string>
     <string name="hello_string">Hello!</string>
-    <string name="login_string">Login:</string>
+    <string name="login_string">Sign in:</string>
+    <string name="email_hint">Your e-mail</string>
+    <string name="password_hint">Your password</string>
+    <string name="user_agree_text">I agree to the terms of services</string>
+    <string name="log_in_button_text">Log in</string>
 </resources>
