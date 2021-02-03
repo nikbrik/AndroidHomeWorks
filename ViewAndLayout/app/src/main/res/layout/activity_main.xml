@@ -19,10 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@string/hello_string"
-            tools:src="@drawable/ic_launcher_foreground"
-            app:profileImage="@{imageUrl}"/>
-        <!--            app:profileImage="@{imageUrl}"-->
-
+            app:imageUrl="@{imageUrl}"
+            tools:src="@drawable/ic_launcher_foreground" />
 
         <TextView
             android:layout_width="match_parent"
