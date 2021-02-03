@@ -1,10 +1,9 @@
 package com.nikbrik.viewandlayout
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
@@ -17,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         ActivityMainBinding.inflate(layoutInflater).run {
             val view = root
             Glide.with(helloImage.context)
-                .load("https://www.freeimages.com/download/file/dfc4fb4259559aded8784be143f3513e/640x480")
+                .load(getString(R.string.hello_image_src))
                 .into(helloImage)
             setContentView(view)
 
@@ -44,6 +43,15 @@ class MainActivity : AppCompatActivity() {
                     password,
                     agree
                 )
+            }
+            loginButton.setOnClickListener { loginButton ->
+                ProgressBar(loginButton.context, null, android.R.attr.progressBarStyleLarge).apply {
+                    layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    ).apply { gravity = Gravity.CENTER }
+                }
+//                loginButton.context.contaiter.
             }
         }
     }
