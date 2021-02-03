@@ -1,34 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <data>
-        <variable
-            name="imageUrl"
-            type="String" />
-    </data>
-
-    <LinearLayout
+    <ImageView
+        android:id="@+id/hello_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/hello_string"
+        tools:src="@drawable/ic_launcher_foreground" />
 
-        <ImageView
-            android:id="@+id/hello_image"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/hello_string"
-            app:imageUrl="@{imageUrl}"
-            tools:src="@drawable/ic_launcher_foreground" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/login_string"
-            android:textSize="24sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/login_string"
+        android:textSize="24sp" />
 
 
-    </LinearLayout>
-</layout>
+</LinearLayout>
