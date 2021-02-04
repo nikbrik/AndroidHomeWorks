@@ -16,22 +16,25 @@ import com.bumptech.glide.Glide
 import com.nikbrik.viewandlayout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    override fun onResume() {
+        super.onResume()
+        updateLoginButton(
+            findViewById(R.id.login_button),
+            findViewById(R.id.email),
+            findViewById(R.id.password),
+            findViewById(R.id.agree)
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityMainBinding.inflate(layoutInflater).run {
-
             val view = root
             Glide.with(helloImage.context)
                 .load(getString(R.string.hello_image_src))
                 .into(helloImage)
             setContentView(view)
-
-            updateLoginButton(
-                loginButton,
-                email,
-                password,
-                agree
-            )
 
             email.addTextChangedListener {
                 updateLoginButton(
@@ -77,7 +80,11 @@ class MainActivity : AppCompatActivity() {
                                 email.isEnabled = true
                                 password.isEnabled = true
                                 agree.isEnabled = true
-                                Toast.makeText(loginButton.context, "Login success", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    context,
+                                    context.getString(R.string.login_success_string),
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             },
                             2000
                         )

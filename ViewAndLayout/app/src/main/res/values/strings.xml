@@ -7,4 +7,5 @@
     <string name="user_agree_text">I agree to the terms of services</string>
     <string name="log_in_button_text">Log in</string>
     <string name="hello_image_src">https://www.freeimages.com/download/file/dfc4fb4259559aded8784be143f3513e/640x480</string>
+    <string name="login_success_string">Login success</string>
 </resources>
