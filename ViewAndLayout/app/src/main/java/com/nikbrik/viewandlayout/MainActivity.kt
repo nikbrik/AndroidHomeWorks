@@ -1,9 +1,15 @@
 package com.nikbrik.viewandlayout
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
-import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
@@ -12,13 +18,20 @@ import com.nikbrik.viewandlayout.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         ActivityMainBinding.inflate(layoutInflater).run {
+
             val view = root
             Glide.with(helloImage.context)
                 .load(getString(R.string.hello_image_src))
                 .into(helloImage)
             setContentView(view)
+
+            updateLoginButton(
+                loginButton,
+                email,
+                password,
+                agree
+            )
 
             email.addTextChangedListener {
                 updateLoginButton(
@@ -50,15 +63,31 @@ class MainActivity : AppCompatActivity() {
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     ).apply { gravity = Gravity.CENTER }
+                }.let {
+                    loginButton.isEnabled = false
+                    email.isEnabled = false
+                    password.isEnabled = false
+                    agree.isEnabled = false
+                    container.apply {
+                        addView(it)
+                        Handler(Looper.getMainLooper()).postDelayed(
+                            {
+                                removeView(it)
+                                loginButton.isEnabled = true
+                                email.isEnabled = true
+                                password.isEnabled = true
+                                agree.isEnabled = true
+                                Toast.makeText(loginButton.context, "Login success", Toast.LENGTH_SHORT).show()
+                            },
+                            2000
+                        )
+                    }
                 }
-//                loginButton.context.contaiter.
             }
         }
     }
 }
 
 inline fun updateLoginButton(button: Button, email: EditText, password: EditText, agree: CheckBox) {
-    button.visibility =
-        if (!email.text.isBlank() && !password.text.isBlank() && agree.isChecked) View.VISIBLE
-        else View.INVISIBLE
+    button.isEnabled = (email.text.isNotBlank() && password.text.isNotBlank() && agree.isChecked)
 }
