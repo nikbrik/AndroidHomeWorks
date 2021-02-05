@@ -4,9 +4,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.Gravity
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -17,19 +14,19 @@ import com.nikbrik.viewandlayout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var activityMainBinding: ActivityMainBinding
+
     override fun onResume() {
         super.onResume()
-        updateLoginButton(
-            findViewById(R.id.login_button),
-            findViewById(R.id.email),
-            findViewById(R.id.password),
-            findViewById(R.id.agree)
-        )
+
+        // Корректная доступность кнопки при повороте экрана
+        updateLoginButton()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityMainBinding.inflate(layoutInflater).run {
+            activityMainBinding = this
             val view = root
             Glide.with(helloImage.context)
                 .load(getString(R.string.hello_image_src))
@@ -37,46 +34,36 @@ class MainActivity : AppCompatActivity() {
             setContentView(view)
 
             email.addTextChangedListener {
-                updateLoginButton(
-                    loginButton,
-                    email,
-                    password,
-                    agree
-                )
+                updateLoginButton()
             }
             password.addTextChangedListener {
-                updateLoginButton(
-                    loginButton,
-                    email,
-                    password,
-                    agree
-                )
+                updateLoginButton()
             }
             agree.setOnClickListener {
-                updateLoginButton(
-                    loginButton,
-                    email,
-                    password,
-                    agree
-                )
+                updateLoginButton()
             }
             loginButton.setOnClickListener { loginButton ->
+                // Создание нового прогресс бара при нажатии кнопки
                 ProgressBar(loginButton.context, null, android.R.attr.progressBarStyleLarge).apply {
                     layoutParams = LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         LinearLayout.LayoutParams.WRAP_CONTENT
                     ).apply { gravity = Gravity.CENTER }
                 }.let {
-                    loginButton.isEnabled = false
+                    // При ландшафтной ориентации progress bar не влезает на экран,
+                    // уходит вниз скроллвью и неочевидно что что-то происходит,
+                    // поэтому принял решение выводить его на место кнопки
+                    loginButton.visibility = LinearLayout.INVISIBLE
                     email.isEnabled = false
                     password.isEnabled = false
                     agree.isEnabled = false
                     container.apply {
-                        addView(it)
+                        addView(it, indexOfChild(loginButton))
                         Handler(Looper.getMainLooper()).postDelayed(
                             {
+                                // Возвращение состояния UI назад через 2 сек.
                                 removeView(it)
-                                loginButton.isEnabled = true
+                                loginButton.visibility = LinearLayout.VISIBLE
                                 email.isEnabled = true
                                 password.isEnabled = true
                                 agree.isEnabled = true
@@ -93,8 +80,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-}
 
-inline fun updateLoginButton(button: Button, email: EditText, password: EditText, agree: CheckBox) {
-    button.isEnabled = (email.text.isNotBlank() && password.text.isNotBlank() && agree.isChecked)
+    private fun updateLoginButton() {
+        activityMainBinding.run {
+            loginButton.isEnabled =
+                (email.text.isNotBlank() && password.text.isNotBlank() && agree.isChecked)
+        }
+    }
 }
