@@ -27,11 +27,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         ActivityMainBinding.inflate(layoutInflater).run {
             activityMainBinding = this
-            val view = root
             Glide.with(helloImage.context)
                 .load(getString(R.string.hello_image_src))
                 .into(helloImage)
-            setContentView(view)
+            setContentView(root)
 
             email.addTextChangedListener {
                 updateLoginButton()
