@@ -25,63 +25,70 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ActivityMainBinding.inflate(layoutInflater).run {
-            activityMainBinding = this
-            Glide.with(helloImage.context)
-                .load(getString(R.string.hello_image_src))
-                .into(helloImage)
-            setContentView(root)
 
-            email.addTextChangedListener {
-                updateLoginButton()
+        activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+
+        Glide.with(activityMainBinding.helloImage.context)
+            .load(getString(R.string.hello_image_src))
+            .into(activityMainBinding.helloImage)
+        setContentView(activityMainBinding.root)
+
+        activityMainBinding.email.addTextChangedListener {
+            updateLoginButton()
+        }
+        activityMainBinding.password.addTextChangedListener {
+            updateLoginButton()
+        }
+        activityMainBinding.agree.setOnClickListener {
+            updateLoginButton()
+        }
+        activityMainBinding.loginButton.setOnClickListener { button ->
+            // Создание нового прогресс бара при нажатии кнопки
+            val newProgressBar =
+                ProgressBar(this, null, android.R.attr.progressBarStyleLarge)
+            newProgressBar.layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply { gravity = Gravity.CENTER }
+
+            // При ландшафтной ориентации progress bar не влезает на экран,
+            // уходит вниз скроллвью и неочевидно что что-то происходит,
+            // поэтому принял решение выводить его на место кнопки
+            setViewsState(false)
+            activityMainBinding.container.apply {
+                addView(newProgressBar, indexOfChild(button))
             }
-            password.addTextChangedListener {
-                updateLoginButton()
-            }
-            agree.setOnClickListener {
-                updateLoginButton()
-            }
-            loginButton.setOnClickListener { loginButton ->
-                // Создание нового прогресс бара при нажатии кнопки
-                ProgressBar(loginButton.context, null, android.R.attr.progressBarStyleLarge).apply {
-                    layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                    ).apply { gravity = Gravity.CENTER }
-                }.let {
-                    // При ландшафтной ориентации progress bar не влезает на экран,
-                    // уходит вниз скроллвью и неочевидно что что-то происходит,
-                    // поэтому принял решение выводить его на место кнопки
-                    loginButton.visibility = LinearLayout.INVISIBLE
-                    email.isEnabled = false
-                    password.isEnabled = false
-                    agree.isEnabled = false
-                    container.apply {
-                        addView(it, indexOfChild(loginButton))
-                        Handler(Looper.getMainLooper()).postDelayed(
-                            {
-                                // Возвращение состояния UI назад через 2 сек.
-                                removeView(it)
-                                loginButton.visibility = LinearLayout.VISIBLE
-                                email.isEnabled = true
-                                password.isEnabled = true
-                                agree.isEnabled = true
-                                Toast.makeText(
-                                    context,
-                                    context.getString(R.string.login_success_string),
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            },
-                            2000
-                        )
-                    }
-                }
-            }
+            // Возвращение состояния UI назад через 2 сек.
+            Handler(Looper.getMainLooper()).postDelayed(
+                {
+                    setViewsState(true)
+                    activityMainBinding.container.removeView(newProgressBar)
+                    showTextInMainActivity(R.string.login_success_string)
+                },
+                2000
+            )
+        }
+    }
+
+    private fun showTextInMainActivity(textId: Int) {
+        Toast.makeText(
+            this,
+            this.getString(textId),
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    private fun setViewsState(isEnabled: Boolean) {
+        activityMainBinding.apply {
+            loginButton.visibility = if (isEnabled) LinearLayout.VISIBLE else LinearLayout.INVISIBLE
+            email.isEnabled = isEnabled
+            password.isEnabled = isEnabled
+            agree.isEnabled = isEnabled
         }
     }
 
     private fun updateLoginButton() {
-        activityMainBinding.run {
+        activityMainBinding.apply {
             loginButton.isEnabled =
                 (email.text.isNotBlank() && password.text.isNotBlank() && agree.isChecked)
         }
