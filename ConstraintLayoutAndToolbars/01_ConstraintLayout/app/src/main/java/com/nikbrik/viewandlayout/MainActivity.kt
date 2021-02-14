@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
 import com.nikbrik.viewandlayout.databinding.ActivityMainBinding
@@ -46,10 +47,15 @@ class MainActivity : AppCompatActivity() {
             // Создание нового прогресс бара при нажатии кнопки
             val newProgressBar =
                 ProgressBar(this, null, android.R.attr.progressBarStyleLarge)
-            newProgressBar.layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            ).apply { gravity = Gravity.CENTER }
+            newProgressBar.layoutParams = ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.WRAP_CONTENT,
+                ConstraintLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+                startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+                horizontalBias = 0.5f
+                topToBottom = R.id.password
+            }
 
             // При ландшафтной ориентации progress bar не влезает на экран,
             // уходит вниз скроллвью и неочевидно что что-то происходит,
@@ -80,7 +86,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setViewsState(isEnabled: Boolean) {
         activityMainBinding.apply {
-            loginButton.visibility = if (isEnabled) LinearLayout.VISIBLE else LinearLayout.INVISIBLE
+//            loginButton.visibility = if (isEnabled) LinearLayout.VISIBLE else LinearLayout.INVISIBLE
+            interactiveGroup.visibility =
+                if (isEnabled) LinearLayout.VISIBLE else LinearLayout.INVISIBLE
             email.isEnabled = isEnabled
             password.isEnabled = isEnabled
             agree.isEnabled = isEnabled
