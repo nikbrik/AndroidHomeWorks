@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Toolbars</string>
+    <string name="long_content">sdfsdfsdfsdfffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        sdfsfsdfsdfsdfsdferwerwedfsdfsdfsfwerwrwerfsdfsdfsdfsfsdfsdfsdfsdfsdfsdf
+        sdfwerkjwelrjlksfserfwelfkjslfkjsdklfjsdlkfjsdlkfjsdlkfjsdlkfjsdklfjsdklf
+        sdeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+        dsffffffffffffffffffdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</string>
+    <string name="search">Search</string>
 </resources>
