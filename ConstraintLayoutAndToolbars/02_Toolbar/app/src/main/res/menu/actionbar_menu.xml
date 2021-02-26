@@ -8,4 +8,10 @@
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom" />
+    <item android:title="Item" />
+    <item android:title="Item" ></item>
+    <group >
+        <item android:title="Item" />
+        <item android:title="Item" />
+    </group>
 </menu>

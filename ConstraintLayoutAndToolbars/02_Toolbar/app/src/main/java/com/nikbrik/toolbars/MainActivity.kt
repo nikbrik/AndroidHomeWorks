@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val longContent = findViewById<EditText>(R.id.long_content)
         val actionSearchView = search.actionView as SearchView
         actionSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
                     val start = longContent.text.indexOf(string = it, ignoreCase = true)
