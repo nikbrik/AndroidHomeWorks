@@ -18,10 +18,13 @@
         <item name="android:background">@color/purple_200</item>
         <item name="android:theme">@style/ActionBarTheme</item>
         <item name="android:elevation">8dp</item>
+        <item name="popupTheme">@style/Theme.AppCompat.Light</item>
     </style>
 
     <style name="ActionBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item>
+        <item name="toolbarNavigationButtonStyle">
+            @style/Widget.AppCompat.Toolbar.Button.Navigation
+        </item>
     </style>
 
     <style name="ActionBarNavigationStyle" parent="Widget.AppCompat.Toolbar.Button.Navigation">

@@ -28,6 +28,22 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
                 R.id.app_bar_search -> {
                     true
                 }
+                R.id.action_1 -> {
+                    toast("action 1")
+                    true
+                }
+                R.id.action_2 -> {
+                    toast("action 2")
+                    true
+                }
+                R.id.action_3 -> {
+                    toast("action 3")
+                    true
+                }
+                R.id.action_4 -> {
+                    toast("action 4")
+                    true
+                }
                 else -> false
             }
         }
