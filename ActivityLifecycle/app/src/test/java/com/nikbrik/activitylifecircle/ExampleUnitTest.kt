@@ -1,4 +1,4 @@
-package com.nikbrik.viewandlayout
+package com.nikbrik.activitylifecircle
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

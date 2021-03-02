@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ViewAndLayout</string>
+    <string name="app_name">ActivityLifeCircle</string>
     <string name="hello_string">Hello!</string>
     <string name="login_string">Sign in:</string>
     <string name="email_hint">Your e-mail</string>
