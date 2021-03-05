@@ -16,32 +16,34 @@ import timber.log.Timber.DebugTree
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var mainBinding: ActivityMainBinding
+    private val KEY_STATE = "FORM_STATE"
+    private lateinit var binding: ActivityMainBinding
+    private var state = FormState(false, "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG && Timber.treeCount() == 0) {
             Timber.plant(DebugTree())
         }
         Timber.v("onCreate")
 
-        mainBinding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
-        Glide.with(mainBinding.helloImage.context)
+        Glide.with(binding.helloImage.context)
             .load(getString(R.string.hello_image_src))
-            .into(mainBinding.helloImage)
-        setContentView(mainBinding.root)
+            .into(binding.helloImage)
+        setContentView(binding.root)
 
-        mainBinding.email.addTextChangedListener {
+        binding.email.addTextChangedListener {
             updateLoginButton()
         }
-        mainBinding.password.addTextChangedListener {
+        binding.password.addTextChangedListener {
             updateLoginButton()
         }
-        mainBinding.agree.setOnClickListener {
+        binding.agree.setOnClickListener {
             updateLoginButton()
         }
-        mainBinding.loginButton.setOnClickListener { button ->
+        binding.loginButton.setOnClickListener { button ->
             // Создание нового прогресс бара при нажатии кнопки
             val newProgressBar =
                 ProgressBar(this, null, android.R.attr.progressBarStyleLarge)
@@ -59,18 +61,29 @@ class MainActivity : AppCompatActivity() {
             // уходит вниз скроллвью и неочевидно что что-то происходит,
             // поэтому принял решение выводить его на место кнопки
             setViewsState(false)
-            mainBinding.container.apply {
+            binding.container.apply {
                 addView(newProgressBar, indexOfChild(button))
             }
             // Возвращение состояния UI назад через 2 сек.
             Handler(Looper.getMainLooper()).postDelayed(
                 {
                     setViewsState(true)
-                    mainBinding.container.removeView(newProgressBar)
-                    showTextInMainActivity(R.string.login_success_string)
+                    binding.container.removeView(newProgressBar)
+                    validateLoginInformation()
                 },
                 2000
             )
+        }
+        binding.anrButton.setOnClickListener { Thread.sleep(20000) }
+    }
+
+    private fun validateLoginInformation() {
+        binding.apply {
+            if (email.text.toString() == "login" || password.text.toString() == "password") {
+                validation.text = getString(R.string.login_success_string)
+            } else {
+                validation.text = getString(R.string.login_failed_string)
+            }
         }
     }
 
@@ -82,9 +95,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Timber.i("onResume")
-
-        // Корректная доступность кнопки при повороте экрана
-        updateLoginButton()
     }
 
     override fun onPause() {
@@ -102,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         Timber.wtf("onDestroy")
     }
 
-    private fun showTextInMainActivity(textId: Int) {
+    private fun toast(textId: Int) {
         Toast.makeText(
             this,
             this.getString(textId),
@@ -111,8 +121,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setViewsState(isEnabled: Boolean) {
-        mainBinding.apply {
-//            loginButton.visibility = if (isEnabled) LinearLayout.VISIBLE else LinearLayout.INVISIBLE
+        binding.apply {
             interactiveGroup.visibility =
                 if (isEnabled) LinearLayout.VISIBLE else LinearLayout.INVISIBLE
             email.isEnabled = isEnabled
@@ -122,9 +131,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateLoginButton() {
-        mainBinding.apply {
+        binding.apply {
             loginButton.isEnabled =
                 (email.text.isNotBlank() && password.text.isNotBlank() && agree.isChecked)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        state.loginButtonAvailable = binding.loginButton.isEnabled
+        state.validationText = binding.validation.text.toString()
+        outState.putParcelable(KEY_STATE, state)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        state = savedInstanceState.getParcelable(KEY_STATE) ?: FormState(false, "")
+        binding.loginButton.isEnabled = state.loginButtonAvailable
+        binding.validation.text = state.validationText
     }
 }
