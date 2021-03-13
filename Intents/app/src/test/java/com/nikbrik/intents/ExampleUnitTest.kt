@@ -1,4 +1,4 @@
-package com.nikbrik.activitylifecircle
+package com.nikbrik.intents
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

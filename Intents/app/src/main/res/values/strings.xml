@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ActivityLifeCircle</string>
+    <string name="app_name">Intents</string>
     <string name="hello_string">Hello!</string>
     <string name="login_string">Sign in:</string>
     <string name="email_hint">Your e-mail</string>
@@ -12,4 +12,8 @@
     <string name="email_header">E-mail</string>
     <string name="password_header">Password</string>
     <string name="anr_button">ANR Button</string>
+    <string name="invalid_email">Invalid e-mail address</string>
+    <string name="phone_number">phone number</string>
+    <string name="call_text">Call</string>
+    <string name="invalid_phone_number">Invalid phone number!</string>
 </resources>

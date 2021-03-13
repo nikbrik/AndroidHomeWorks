@@ -16,7 +16,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/agree" />
+            app:layout_constraintTop_toBottomOf="@+id/agree"
+            android:visibility="invisible"/>
 
         <Button
             android:id="@+id/anr_button"
@@ -27,7 +28,8 @@
             app:layout_constraintCircleAngle="120"
             app:layout_constraintCircleRadius="120dp"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@+id/validation" />
+            app:layout_constraintTop_toBottomOf="@+id/validation"
+            android:visibility="invisible"/>
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier"

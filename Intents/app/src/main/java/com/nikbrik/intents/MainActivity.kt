@@ -1,5 +1,6 @@
-package com.nikbrik.activitylifecircle
+package com.nikbrik.intents
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import com.bumptech.glide.Glide
-import com.nikbrik.activitylifecircle.databinding.ActivityMainBinding
+import com.nikbrik.intents.databinding.ActivityMainBinding
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
@@ -80,11 +81,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun validateLoginInformation() {
         binding.apply {
-            if (email.text.toString() == "login" || password.text.toString() == "password") {
-                validation.text = getString(R.string.login_success_string)
-            } else {
-                validation.text = getString(R.string.login_failed_string)
-            }
+//            if (email.text.toString() == "login" || password.text.toString() == "password") {
+//                validation.text = getString(R.string.login_success_string)
+                val openSecondActivitiIntent =
+                    Intent(this@MainActivity, SecondaryActivity::class.java)
+                startActivity(openSecondActivitiIntent)
+                finish()
+//            } else {
+//                validation.text = getString(R.string.login_failed_string)
+//            }
         }
     }
 
@@ -133,12 +138,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateLoginButton() {
         binding.apply {
-//            if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
+            if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
                 loginButton.isEnabled =
                     (email.text.isNotBlank() && password.text.isNotBlank() && agree.isChecked)
-//            } else {
-//                toast()
-//            }
+            } else {
+                toast(R.string.invalid_email)
+            }
         }
     }
 
