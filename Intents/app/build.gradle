@@ -53,4 +53,5 @@ dependencies {
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation "androidx.activity:activity-ktx:$activity_version"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.4.4'
 }

@@ -11,30 +11,30 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
-import com.nikbrik.intents.databinding.ActivityMainBinding
+import com.nikbrik.intents.databinding.ActivityLoginBinding
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private val KEY_STATE = "FORM_STATE"
-    private lateinit var binding: ActivityMainBinding
+    private val binding: ActivityLoginBinding by viewBinding()
     private var state = FormState(false, "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+
         if (BuildConfig.DEBUG && Timber.treeCount() == 0) {
             Timber.plant(DebugTree())
         }
         Timber.v("onCreate")
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-
         Glide.with(binding.helloImage.context)
             .load(getString(R.string.hello_image_src))
             .into(binding.helloImage)
-        setContentView(binding.root)
 
         binding.email.addTextChangedListener {
             updateLoginButton()
@@ -73,24 +73,22 @@ class MainActivity : AppCompatActivity() {
                     binding.container.removeView(newProgressBar)
                     validateLoginInformation()
                 },
-                2000
+                1000
             )
         }
-        binding.anrButton.setOnClickListener { Thread.sleep(20000) }
+        binding.anrButton.setOnClickListener { Thread.sleep(6000) }
     }
 
     private fun validateLoginInformation() {
-        binding.apply {
-//            if (email.text.toString() == "login" || password.text.toString() == "password") {
-//                validation.text = getString(R.string.login_success_string)
-                val openSecondActivitiIntent =
-                    Intent(this@MainActivity, SecondaryActivity::class.java)
-                startActivity(openSecondActivitiIntent)
-                finish()
-//            } else {
-//                validation.text = getString(R.string.login_failed_string)
-//            }
-        }
+
+        //validation here TODO
+
+        BaseAuthActivity.isAuthorized = true
+
+        val openSecondActivityIntent =
+            Intent(this, SecondaryActivity::class.java)
+        startActivity(openSecondActivityIntent)
+        finish()
     }
 
     override fun onStart() {
