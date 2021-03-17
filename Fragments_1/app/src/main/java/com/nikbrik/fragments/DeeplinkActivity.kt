@@ -1,10 +1,10 @@
-package com.nikbrik.intents
+package com.nikbrik.fragments
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.nikbrik.intents.databinding.ActivityDeeplinkBinding
+import com.nikbrik.fragments.databinding.ActivityDeeplinkBinding
 
 class DeeplinkActivity : AppCompatActivity(R.layout.activity_deeplink) {
 

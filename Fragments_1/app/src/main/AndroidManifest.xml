@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nikbrik.intents">
+    package="com.nikbrik.fragments">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <!--
@@ -17,13 +17,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ViewAndLayout">
 
-        <activity
-            android:name="com.nikbrik.intents.LoginActivity"
-            android:launchMode="singleTop" />
+<!--        <activity-->
+<!--            android:name="com.nikbrik.fragments.LoginActivity"-->
+<!--            android:launchMode="singleTop" />-->
 
-        <activity
-            android:name=".SecondaryActivity"
-            android:label="Secondary Activity">
+<!--        <activity-->
+<!--            android:name="com.nikbrik.fragments.SecondaryActivity"-->
+<!--            android:label="Secondary Activity">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+        <activity android:name=".MainActivity"
+            android:label="Main Activity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +41,7 @@
         </activity>
 
         <activity
-            android:name=".DeeplinkActivity"
+            android:name="com.nikbrik.fragments.DeeplinkActivity"
             android:label="Deeplink Activity"
             android:launchMode="singleTask">
             <intent-filter>

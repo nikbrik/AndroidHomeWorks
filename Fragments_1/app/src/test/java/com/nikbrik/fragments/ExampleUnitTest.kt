@@ -1,4 +1,4 @@
-package com.nikbrik.intents
+package com.nikbrik.fragments
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

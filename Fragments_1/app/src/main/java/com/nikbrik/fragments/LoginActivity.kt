@@ -1,4 +1,4 @@
-package com.nikbrik.intents
+package com.nikbrik.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,7 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.widget.addTextChangedListener
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
-import com.nikbrik.intents.databinding.ActivityLoginBinding
+import com.nikbrik.fragments.databinding.ActivityLoginBinding
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
@@ -35,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
         Glide.with(binding.helloImage.context)
             .load(getString(R.string.hello_image_src))
             .into(binding.helloImage)
-
         binding.email.addTextChangedListener {
             updateLoginButton()
         }

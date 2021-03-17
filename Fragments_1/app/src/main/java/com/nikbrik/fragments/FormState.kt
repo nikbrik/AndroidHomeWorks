@@ -1,4 +1,4 @@
-package com.nikbrik.intents
+package com.nikbrik.fragments
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

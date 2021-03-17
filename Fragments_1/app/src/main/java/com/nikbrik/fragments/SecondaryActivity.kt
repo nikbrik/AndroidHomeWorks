@@ -1,13 +1,12 @@
-package com.nikbrik.intents
+package com.nikbrik.fragments
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.nikbrik.intents.databinding.ActivitySecondaryBinding
+import com.nikbrik.fragments.databinding.ActivitySecondaryBinding
 
 class SecondaryActivity : BaseAuthActivity() {
 
