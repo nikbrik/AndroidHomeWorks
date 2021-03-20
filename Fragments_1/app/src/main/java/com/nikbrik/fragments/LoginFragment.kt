@@ -1,6 +1,5 @@
 package com.nikbrik.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -15,7 +14,6 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.nikbrik.fragments.databinding.FragmentLoginBinding
-import timber.log.Timber
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
 
@@ -88,15 +86,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun validateLoginInformation() {
 
-        //validation here TODO
+        // validation here TODO
 
         BaseAuthFragment.isAuthorized = true
 
-//        val openSecondActivityIntent =
-//            Intent(this.context, SecondaryActivity::class.java)
-//        startActivity(openSecondActivityIntent)
         parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, CallFragment())
+            .replace(R.id.main_activity_container, MainFragment())
             .commit()
     }
 

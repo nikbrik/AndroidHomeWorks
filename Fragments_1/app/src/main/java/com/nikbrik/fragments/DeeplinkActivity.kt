@@ -23,8 +23,7 @@ class DeeplinkActivity : AppCompatActivity(R.layout.activity_deeplink) {
         super.onNewIntent(intent)
 
         intent?.data?.let {
-            binding.deeplinkText.text = "OnNewIntent: ${it}"
+            binding.deeplinkText.text = "OnNewIntent: $it"
         }
-
     }
 }
