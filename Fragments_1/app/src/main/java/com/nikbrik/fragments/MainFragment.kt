@@ -1,16 +1,29 @@
 package com.nikbrik.fragments
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.FragmentManager
 
 class MainFragment : BaseAuthFragment(R.layout.fragment_main) {
 
-    private var addedToBackStack = false
+    private var listAddedToBackStack = false
+    private var needShowList = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         (activity as? MainActivity)?.childOnBackPressedAction = ::showListFragment
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            (activity as? MainActivity)?.childOnBackPressedAction = ::showListFragment
+            needShowList = true
+        } else {
+            (activity as? MainActivity)?.childOnBackPressedAction = { true }
+            needShowList = false
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -20,11 +33,11 @@ class MainFragment : BaseAuthFragment(R.layout.fragment_main) {
 
     private fun showListFragment(): Boolean {
         val entryCountZero = childFragmentManager.backStackEntryCount == 0
-        if (isAuthorized) {
-            if (addedToBackStack) {
+        if (isAuthorized && needShowList) {
+            if (listAddedToBackStack) {
                 childFragmentManager.popBackStack()
             } else {
-                addedToBackStack = true
+                listAddedToBackStack = true
                 childFragmentManager.beginTransaction()
                     .replace(R.id.main_fragment_container, ListFragment())
                     .commit()
