@@ -12,10 +12,6 @@ import com.nikbrik.fragments.databinding.FragmentCallBinding
 class CallFragment : BaseAuthFragment(R.layout.fragment_call) {
     private val binding: FragmentCallBinding by viewBinding()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

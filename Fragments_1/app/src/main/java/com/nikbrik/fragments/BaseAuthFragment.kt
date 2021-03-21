@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 
 open class BaseAuthFragment(
-    private val contentLayoutId: Int,
+    contentLayoutId: Int,
 ) : Fragment(contentLayoutId) {
 
     companion object {

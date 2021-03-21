@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/static_fragment"
         android:name="com.nikbrik.fragments.ListFragment"
         android:layout_width="wrap_content"
