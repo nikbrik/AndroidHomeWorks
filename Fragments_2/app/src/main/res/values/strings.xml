@@ -1,3 +1,52 @@
 <resources>
-    <string name="app_name">newsByViewPager</string>
+    <string name="app_name">News</string>
+    <string name="sherlok_title">Sherlock</string>
+    <string name="sherlok"><![CDATA[<h1>Solve mobile production issues like a Sherlock</h1><br>
+<p>I assume that most of you (I’m talking about you, mobile developers)
+had to deal with production issues like crashes, bugs, and unexpected app
+behavior at some point in your career.<br>
+Ok… now you have a production issue that happens to many users (possibly
+millions) with different devices, different OS versions, different countries,
+and the list goes on and on.<br>
+So how are you supposed to approach this issue? Where should you start looking?</span></p>
+
+<p>A
+Story tell</span></p>
+
+<p>To demonstrate how to approach production issues, I’ll walk you through
+a story, so it will be easier for you to understand.<br>
+Imagine a developer that has a stock trading app that allows users to buy/sell
+stocks.<br>
+All of a sudden, the analytics system (like Google Analytics) is showing a
+decline in users lifetime. Further investigation reveals that the last event
+from these short-lived users is “show-stock-info-event, which occurs when a
+user clicks on a stock to see more information about it.</span></p>
+
+<p><span>The first thing the developer probably does is check in the logs of the
+crash monitoring system and after hours of checking, you finally found
+something that according to the stack trace might be related to the info screen
+but you’re not sure.<br>
+The next thing that he does is try to reproduce it by himself but he fails to
+do it and he doesn’t understand what is the flow that users go through that
+causes the app to crash.<br>
+So what does he do now? How does he go from here? Will he need to stay up all
+night again and eat pizzas at work?<br>
+Don’t worry! I’m going to share with you a few tips that will really help him
+and you.</span></p>
+<a>https://proandroiddev.com/solve-mobile-production-issues-like-a-sherlock-f3c5a4db6e1</a>
+    ]]></string>
+    <string name="text_view_title">TextView</string>
+    <string name="text_view"><![CDATA[<h1>Отображение текста в Android</h1><br>
+Отображение текстовой информации — наверное, самая базовая и важная часть многих Android-приложений. В данной статье пойдет речь о TextView. Каждый разработчик, начиная с «Hello World», постоянно сталкивается с этим элементом пользовательского интерфейса. Периодически в работе с текстом приходится задумываться о реализации различных дизайнерских решений или улучшении производительности при отрисовке экрана.
+Я расскажу об устройстве TextView и некоторых тонкостях работы с ним. Основные советы были взяты из докладов прошедших Google I/O.
+
+TextView под капотом
+
+Для отрисовки текста в Android под капотом используется целый стек из различных библиотек. Их можно разделить на две основные части — java-код и нативный код:
+Java-код по сути является частью Android SDK, доступной разработчикам приложений, и новые возможности из него могут быть перенесены в support library.
+Само ядро TextView написано на C++, что ограничивает портирование в support library реализованных там новых возможностей из новых версий операционной системы. Ядро представляет из себя следующие библиотеки:
+<a>https://habr.com/ru/company/redmadrobot/blog/461787/</a>
+    ]]></string>
+    <string name="article_image_description">Article image</string>
+
 </resources>
