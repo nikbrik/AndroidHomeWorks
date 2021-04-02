@@ -20,7 +20,6 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
 
         binding.toolbar.setTitle(requireArguments().getInt(KEY_TITLE))
 
-//        binding.image.setImageResource(requireArguments().getInt(KEY_IMAGE))
         Glide.with(binding.root)
             .load(requireArguments().getInt(KEY_IMAGE))
             .into(binding.image)
