@@ -2,11 +2,14 @@ package com.nikbrik.newsbyviewpager
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.nikbrik.newsbyviewpager.databinding.FragmentViewpagerBinding
 import kotlin.math.abs
+import kotlin.random.Random
 
 class ViewPagerFragment : Fragment(R.layout.fragment_viewpager) {
     private val binding: FragmentViewpagerBinding by viewBinding()
@@ -55,7 +58,32 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager) {
                 }
             }
         }
-        TabLayoutMediator(binding.tabs, binding.viewPager) { _, _ ->
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+            tab.text = getText(articles[position].titleId)
         }.attach()
+
+        binding.addBadge.setOnClickListener {
+            val randomTabNumber = Random.Default.nextInt(until = articles.size)
+            val randomTab = binding.tabs.getTabAt(randomTabNumber)
+            val badge = randomTab?.getOrCreateBadge()
+            badge?.apply { number++ }
+        }
+
+        binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tab?.removeBadge()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
+        binding.toolbar.apply {
+            title = ""
+            menu.findItem(R.id.filter).setOnMenuItemClickListener {
+                Toast.makeText(this@ViewPagerFragment.context, "filter", Toast.LENGTH_SHORT).show()
+                true
+            }
+        }
     }
 }
+

@@ -18,7 +18,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolbar.setTitle(requireArguments().getInt(KEY_TITLE))
+//        binding.toolbar.setTitle(requireArguments().getInt(KEY_TITLE))
 
         Glide.with(binding.root)
             .load(requireArguments().getInt(KEY_IMAGE))
