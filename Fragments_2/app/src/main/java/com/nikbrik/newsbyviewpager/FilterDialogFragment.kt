@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
 class FilterDialogFragment : DialogFragment() {
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.filter_dialog_title))
@@ -16,8 +17,10 @@ class FilterDialogFragment : DialogFragment() {
                 requireArguments().getBooleanArray(KEY_BARRAY),
             ) { _, _, _ -> }
             .setPositiveButton(getString(R.string.apply)) { dialog, i ->
-                (requireParentFragment() as MultichoiceDialogParent).items
-                dialog.dismiss()
+//                dialog?.
+//                (requireParentFragment() as MultichoiceDialogParent).useOfItems
+//                getDialog()
+//                dialog.dismiss()
             }
             .setNegativeButton(getString(R.string.cancel)) { dialog, i ->
 

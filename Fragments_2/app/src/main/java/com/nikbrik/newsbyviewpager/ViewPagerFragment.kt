@@ -39,6 +39,51 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
 
         binding.viewPager.adapter = ArticlesAdapter(articles, this)
         binding.wormDotsIndicator.setViewPager2(binding.viewPager)
+
+        setPageAnimation()
+
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+            tab.text = getText(articles[position].titleId)
+        }.attach()
+
+        binding.addBadge.setOnClickListener {
+            val randomTabNumber = Random.Default.nextInt(until = articles.size)
+            val randomTab = binding.tabs.getTabAt(randomTabNumber)
+            val badge = randomTab?.getOrCreateBadge()
+            badge?.apply { number++ }
+        }
+
+        binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tab?.removeBadge()
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
+
+        initToolbar()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.apply {
+            title = ""
+
+            // Настройка фильтра
+            menu.findItem(R.id.filter).setOnMenuItemClickListener {
+                FilterDialogFragment()
+                    .withArguments {
+                        putStringArray(FilterDialogFragment.KEY_LIST, items)
+                        putBooleanArray(FilterDialogFragment.KEY_BARRAY, useOfItems)
+                    }
+                    .show(childFragmentManager, "filterDialogFragment")
+
+                true
+            }
+        }
+    }
+
+    private fun setPageAnimation() {
         binding.viewPager.setPageTransformer { page, position ->
             page.apply {
 
@@ -63,38 +108,6 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
                     // (1,+Infinity]
                     else -> alpha = 0f // This page is way off-screen to the right.
                 }
-            }
-        }
-        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-            tab.text = getText(articles[position].titleId)
-        }.attach()
-
-        binding.addBadge.setOnClickListener {
-            val randomTabNumber = Random.Default.nextInt(until = articles.size)
-            val randomTab = binding.tabs.getTabAt(randomTabNumber)
-            val badge = randomTab?.getOrCreateBadge()
-            badge?.apply { number++ }
-        }
-
-        binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                tab?.removeBadge()
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-        })
-
-        binding.toolbar.apply {
-            title = ""
-            menu.findItem(R.id.filter).setOnMenuItemClickListener {
-                FilterDialogFragment()
-                    .withArguments {
-                        putStringArray(FilterDialogFragment.KEY_LIST, items)
-                        putBooleanArray(FilterDialogFragment.KEY_BARRAY, useOfItems)
-                    }
-                    .show(childFragmentManager, "filterDialogFragment")
-                true
             }
         }
     }
