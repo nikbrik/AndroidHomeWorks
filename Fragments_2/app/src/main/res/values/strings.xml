@@ -51,5 +51,7 @@ Java-код по сути является частью Android SDK, досту�
     <string name="add_badge">Add badge</string>
     <string name="filter">Filter</string>
     <string name="filter_dialog_title">Select tags:</string>
+    <string name="apply">Apply</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

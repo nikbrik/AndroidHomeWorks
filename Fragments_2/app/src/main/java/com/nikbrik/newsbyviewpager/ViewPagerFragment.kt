@@ -2,7 +2,6 @@ package com.nikbrik.newsbyviewpager
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayout
@@ -11,7 +10,7 @@ import com.nikbrik.newsbyviewpager.databinding.FragmentViewpagerBinding
 import kotlin.math.abs
 import kotlin.random.Random
 
-class ViewPagerFragment : Fragment(R.layout.fragment_viewpager) {
+class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDialogParent {
     private val binding: FragmentViewpagerBinding by viewBinding()
 
     private val articles = listOf(
@@ -19,13 +18,21 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager) {
             R.string.sherlok_title,
             R.string.sherlok,
             R.drawable.sherlok,
+            listOf(ArticleTag.IT)
         ),
         Article(
             R.string.text_view_title,
             R.string.text_view,
             R.drawable.text_view,
+            listOf(ArticleTag.IT)
         )
     )
+    override val items = arrayOf(
+        ArticleTag.GLOBAL.toString(),
+        ArticleTag.IT.toString(),
+        ArticleTag.SPORT.toString(),
+    )
+    override val useOfItems = booleanArrayOf(true, true, true)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -77,13 +84,18 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager) {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
+
         binding.toolbar.apply {
             title = ""
             menu.findItem(R.id.filter).setOnMenuItemClickListener {
-                Toast.makeText(this@ViewPagerFragment.context, "filter", Toast.LENGTH_SHORT).show()
+                FilterDialogFragment()
+                    .withArguments {
+                        putStringArray(FilterDialogFragment.KEY_LIST, items)
+                        putBooleanArray(FilterDialogFragment.KEY_BARRAY, useOfItems)
+                    }
+                    .show(childFragmentManager, "filterDialogFragment")
                 true
             }
         }
     }
 }
-
