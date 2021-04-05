@@ -9,18 +9,23 @@ import androidx.fragment.app.DialogFragment
 
 class FilterDialogFragment : DialogFragment() {
 
+    private var checkArray: BooleanArray? = null
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
+        checkArray = requireArguments().getBooleanArray(KEY_BARRAY)
+
         return AlertDialog.Builder(requireContext())
             .setTitle(getString(R.string.filter_dialog_title))
             .setMultiChoiceItems(
-                requireArguments().getStringArray(KEY_LIST),
-                requireArguments().getBooleanArray(KEY_BARRAY),
-            ) { _, _, _ -> }
+                ArticleTag.getStringArray(),
+                checkArray,
+            ) { _, which, isChecked ->
+                checkArray?.set(which, isChecked)
+            }
             .setPositiveButton(getString(R.string.apply)) { dialog, i ->
-//                dialog?.
-//                (requireParentFragment() as MultichoiceDialogParent).useOfItems
-//                getDialog()
-//                dialog.dismiss()
+                (requireParentFragment() as MultichoiceDialogListener).onMultichoiceDialogApply(checkArray)
+                dialog.dismiss()
             }
             .setNegativeButton(getString(R.string.cancel)) { dialog, i ->
 

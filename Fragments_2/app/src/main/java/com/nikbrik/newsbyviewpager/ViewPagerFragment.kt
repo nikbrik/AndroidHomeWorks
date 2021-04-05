@@ -10,7 +10,7 @@ import com.nikbrik.newsbyviewpager.databinding.FragmentViewpagerBinding
 import kotlin.math.abs
 import kotlin.random.Random
 
-class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDialogParent {
+class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDialogListener {
     private val binding: FragmentViewpagerBinding by viewBinding()
 
     private val articles = listOf(
@@ -27,12 +27,17 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
             listOf(ArticleTag.IT)
         )
     )
-    override val items = arrayOf(
-        ArticleTag.GLOBAL.toString(),
-        ArticleTag.IT.toString(),
-        ArticleTag.SPORT.toString(),
-    )
-    override val useOfItems = booleanArrayOf(true, true, true)
+
+    private val checkBoxes = mutableListOf<Boolean>()
+
+    override fun onMultichoiceDialogApply(tagCheckBoxes: BooleanArray?) {
+        tagCheckBoxes?.let {
+            for (i in 0..it.lastIndex) {
+                checkBoxes[i] = it[i]
+            }
+        }
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -69,12 +74,14 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
         binding.toolbar.apply {
             title = ""
 
-            // Настройка фильтра
+            // Настройка диалога фильтра
             menu.findItem(R.id.filter).setOnMenuItemClickListener {
                 FilterDialogFragment()
                     .withArguments {
-                        putStringArray(FilterDialogFragment.KEY_LIST, items)
-                        putBooleanArray(FilterDialogFragment.KEY_BARRAY, useOfItems)
+                        putBooleanArray(
+                            FilterDialogFragment.KEY_BARRAY,
+                            checkBoxes.toBooleanArray()
+                        )
                     }
                     .show(childFragmentManager, "filterDialogFragment")
 
@@ -111,4 +118,5 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
             }
         }
     }
+
 }
