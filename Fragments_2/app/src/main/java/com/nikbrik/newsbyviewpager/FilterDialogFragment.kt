@@ -34,7 +34,6 @@ class FilterDialogFragment : DialogFragment() {
     }
 
     companion object {
-        const val KEY_LIST = "stringArray"
         const val KEY_BARRAY = "boolArray"
     }
 }

@@ -2,6 +2,7 @@ package com.nikbrik.newsbyviewpager
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayout
@@ -9,6 +10,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.nikbrik.newsbyviewpager.databinding.FragmentViewpagerBinding
 import kotlin.math.abs
 import kotlin.random.Random
+
+const val KEY_CHECKBOXES = "KEY_CHECKBOXES"
+const val KEY_BADGES = "KEY_BADGES"
 
 class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDialogListener {
     private val binding: FragmentViewpagerBinding by viewBinding()
@@ -28,7 +32,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
         )
     )
 
-    private val checkBoxes = mutableListOf<Boolean>()
+    private var checkBoxes = ArticleTag.getBooleanArray()
 
     override fun onMultichoiceDialogApply(tagCheckBoxes: BooleanArray?) {
         tagCheckBoxes?.let {
@@ -36,28 +40,42 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
                 checkBoxes[i] = it[i]
             }
         }
+        updateArticles()
+    }
 
+    private fun updateArticles() {
+        // фильтр статей
+        val listEnabledTags = mutableListOf<ArticleTag>()
+        for (i in 0..checkBoxes.lastIndex) {
+            if (checkBoxes[i]) listEnabledTags.add(ArticleTag.values()[i])
+        }
+        binding.viewPager.adapter = ArticlesAdapter(
+            articles.filter {
+                it.tags.any {
+                    listEnabledTags.contains(it)
+                }
+            },
+            this
+        )
+        // установка нижнего индикатора
+        binding.wormDotsIndicator.setViewPager2(binding.viewPager)
+        // Установка вкладок
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+            tab.text = getText(articles[position].titleId)
+        }.attach()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.viewPager.adapter = ArticlesAdapter(articles, this)
-        binding.wormDotsIndicator.setViewPager2(binding.viewPager)
-
+        updateArticles()
         setPageAnimation()
 
-        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-            tab.text = getText(articles[position].titleId)
-        }.attach()
-
+        // badges
         binding.addBadge.setOnClickListener {
             val randomTabNumber = Random.Default.nextInt(until = articles.size)
-            val randomTab = binding.tabs.getTabAt(randomTabNumber)
-            val badge = randomTab?.getOrCreateBadge()
-            badge?.apply { number++ }
+            setBadge(randomTabNumber, incBadgeNumber = 1)
         }
-
         binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tab?.removeBadge()
@@ -68,6 +86,13 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
         })
 
         initToolbar()
+
+    }
+
+    private fun setBadge(tabNumber: Int, incBadgeNumber: Int) {
+        val tab = binding.tabs.getTabAt(tabNumber)
+        val badge = tab?.getOrCreateBadge()
+        badge?.apply { number += incBadgeNumber }
     }
 
     private fun initToolbar() {
@@ -80,7 +105,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
                     .withArguments {
                         putBooleanArray(
                             FilterDialogFragment.KEY_BARRAY,
-                            checkBoxes.toBooleanArray()
+                            checkBoxes
                         )
                     }
                     .show(childFragmentManager, "filterDialogFragment")
@@ -119,4 +144,31 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
         }
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBooleanArray(KEY_CHECKBOXES, checkBoxes)
+
+        // Сохранение бэйджей
+        val badgeNumbers = arrayListOf<Int>()
+        for (i in 0 until binding.tabs.tabCount) {
+            badgeNumbers.add(
+                binding.tabs.getTabAt(i)?.badge
+                    ?.number ?: 0
+            )
+        }
+        outState.putIntegerArrayList(KEY_BADGES, badgeNumbers)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        // Восстановление фильтрованных вкладок
+        savedInstanceState?.getBooleanArray(KEY_CHECKBOXES)?.let { checkBoxes = it }
+        updateArticles()
+
+        // Восстановление бэйджей
+        val badges = savedInstanceState?.getIntegerArrayList(KEY_BADGES)
+        badges?.forEach {
+            if (it != 0) setBadge(badges.indexOf(it), it)
+        }
+    }
 }

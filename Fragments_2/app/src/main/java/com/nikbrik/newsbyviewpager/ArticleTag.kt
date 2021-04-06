@@ -11,5 +11,13 @@ enum class ArticleTag {
             }
             return strings.toTypedArray()
         }
+
+        fun getBooleanArray(): BooleanArray {
+            val checkBoxes = mutableListOf<Boolean>()
+            values().forEach {
+                checkBoxes.add(true)
+            }
+            return checkBoxes.toBooleanArray()
+        }
     }
 }
