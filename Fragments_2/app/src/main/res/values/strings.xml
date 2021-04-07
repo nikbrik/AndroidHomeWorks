@@ -10,8 +10,7 @@ millions) with different devices, different OS versions, different countries,
 and the list goes on and on.<br>
 So how are you supposed to approach this issue? Where should you start looking?</span></p>
 
-<p>A
-Story tell</span></p>
+<h2>A Story tell</h2>
 
 <p>To demonstrate how to approach production issues, I’ll walk you through
 a story, so it will be easier for you to understand.<br>
@@ -32,21 +31,34 @@ causes the app to crash.<br>
 So what does he do now? How does he go from here? Will he need to stay up all
 night again and eat pizzas at work?<br>
 Don’t worry! I’m going to share with you a few tips that will really help him
-and you.</span></p>
-<a>https://proandroiddev.com/solve-mobile-production-issues-like-a-sherlock-f3c5a4db6e1</a>
-    ]]></string>
+and you.</span></p><br>
+<a href="https://proandroiddev.com/solve-mobile-production-issues-like-a-sherlock-f3c5a4db6e1">source</a>]]></string>
+
     <string name="text_view_title">TextView</string>
     <string name="text_view"><![CDATA[<h1>Отображение текста в Android</h1><br>
 Отображение текстовой информации — наверное, самая базовая и важная часть многих Android-приложений. В данной статье пойдет речь о TextView. Каждый разработчик, начиная с «Hello World», постоянно сталкивается с этим элементом пользовательского интерфейса. Периодически в работе с текстом приходится задумываться о реализации различных дизайнерских решений или улучшении производительности при отрисовке экрана.
 Я расскажу об устройстве TextView и некоторых тонкостях работы с ним. Основные советы были взяты из докладов прошедших Google I/O.
-
-TextView под капотом
-
+<h2>TextView под капотом</h2><br>
 Для отрисовки текста в Android под капотом используется целый стек из различных библиотек. Их можно разделить на две основные части — java-код и нативный код:
 Java-код по сути является частью Android SDK, доступной разработчикам приложений, и новые возможности из него могут быть перенесены в support library.
 Само ядро TextView написано на C++, что ограничивает портирование в support library реализованных там новых возможностей из новых версий операционной системы. Ядро представляет из себя следующие библиотеки:
-<a>https://habr.com/ru/company/redmadrobot/blog/461787/</a>
+<a href = "https://habr.com/ru/company/redmadrobot/blog/461787/">Источник</a>
     ]]></string>
+
+    <string name="liverpool_title">Liverpool</string>
+    <string name="liverpool"><![CDATA[Jurgen Klopp says Liverpool made it "too easy" for Real Madrid to win the quarter-final first leg between the sides, but feels Mohamed Salah’s goal offers his side a lifeline in the return game at Anfield.
+The Reds were largely second best throughout an entertaining game against a Real team missing their first-choice centre-back pairing, but packed with impressive attacking talent.
+Much of the damage was done in the first half through Vinicius Junior’s low drive after he had chested down a superb long pass from Toni Kroos and a Marco Asensio’s close-range finish following a defensive mistake from Trent Alexander-Arnold.
+<a href="https://www.bbc.com/sport/football/56641937">source</a>]]></string>
+
+    <string name="cosmos_title">Cosmos</string>
+    <string name="cosmos"><![CDATA[While the faces of Nasa’s Mercury Seven were splashed across the world’s media, Russia’s cosmonauts trained in secret, away from the world’s gaze.
+On 13 April 1961, Soviet newspaper Izvestia’s special correspondent Georgi Ostroumov meets the first man in space. A day after returning to Earth "space pilot" Yuri Gagarin is, reports Ostroumov, "in high spirits, hale and hearty…a wonderful smile illumines his face."
+"Every now and then dimples appear on his cheeks," Ostroumov writes. "He appreciates the curiosity with which he is pressed for the details of what he saw and experienced during the one and a half hours he spent outside the Earth."
+In a booklet published to commemorate the flight, Soviet Man in Space, the interview with Gagarin continues for several pages. The cosmonaut describes the experience: "The horizon presents a very unique and unusually beautiful sight." And praises the Soviet Union: "I dedicate my flight to… all our people who are marching in the forefront of humanity and building a new society."
+In a political system where journalism tends towards propaganda, rather than a realistic portrayal of events, it is easy to argue that Gagarin’s quotes are made-up. But, although they might have been refined by censors, there is a good chance they are the cosmonaut’s actual words.
+<a href="https://www.bbc.com/future/article/20210406-how-russias-cosmonauts-trained-for-space?ocid=global_future_rss">source</a>]]></string>
+
     <string name="article_image_description">Article image</string>
     <string name="add_badge">Add badge</string>
     <string name="filter">Filter</string>

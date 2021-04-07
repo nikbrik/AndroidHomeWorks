@@ -1,9 +1,7 @@
 package com.nikbrik.newsbyviewpager
 
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
@@ -24,8 +22,7 @@ class FilterDialogFragment : DialogFragment() {
                 checkArray?.set(which, isChecked)
             }
             .setPositiveButton(getString(R.string.apply)) { dialog, i ->
-                (requireParentFragment() as MultichoiceDialogListener).onMultichoiceDialogApply(checkArray)
-                dialog.dismiss()
+                (requireParentFragment() as MultiChoiceDialogListener).onMultiChoiceDialogApply(checkArray)
             }
             .setNegativeButton(getString(R.string.cancel)) { dialog, i ->
 

@@ -2,7 +2,6 @@ package com.nikbrik.newsbyviewpager
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.size
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayout
@@ -14,7 +13,7 @@ import kotlin.random.Random
 const val KEY_CHECKBOXES = "KEY_CHECKBOXES"
 const val KEY_BADGES = "KEY_BADGES"
 
-class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDialogListener {
+class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultiChoiceDialogListener {
     private val binding: FragmentViewpagerBinding by viewBinding()
 
     private val articles = listOf(
@@ -29,12 +28,24 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
             R.string.text_view,
             R.drawable.text_view,
             listOf(ArticleTag.IT)
-        )
+        ),
+        Article(
+            R.string.liverpool_title,
+            R.string.liverpool,
+            R.drawable.liverpool_image,
+            listOf(ArticleTag.SPORT)
+        ),
+        Article(
+            R.string.cosmos_title,
+            R.string.cosmos,
+            R.drawable.cosmos,
+            listOf(ArticleTag.GLOBAL)
+        ),
     )
 
     private var checkBoxes = ArticleTag.getBooleanArray()
 
-    override fun onMultichoiceDialogApply(tagCheckBoxes: BooleanArray?) {
+    override fun onMultiChoiceDialogApply(tagCheckBoxes: BooleanArray?) {
         tagCheckBoxes?.let {
             for (i in 0..it.lastIndex) {
                 checkBoxes[i] = it[i]
@@ -49,19 +60,21 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
         for (i in 0..checkBoxes.lastIndex) {
             if (checkBoxes[i]) listEnabledTags.add(ArticleTag.values()[i])
         }
+
+        val filteredArticles = articles.filter {
+            it.tags.any {
+                listEnabledTags.contains(it)
+            }
+        }
         binding.viewPager.adapter = ArticlesAdapter(
-            articles.filter {
-                it.tags.any {
-                    listEnabledTags.contains(it)
-                }
-            },
+            filteredArticles,
             this
         )
         // установка нижнего индикатора
         binding.wormDotsIndicator.setViewPager2(binding.viewPager)
         // Установка вкладок
         TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
-            tab.text = getText(articles[position].titleId)
+            tab.text = getText(filteredArticles[position].titleId)
         }.attach()
     }
 
@@ -105,7 +118,7 @@ class ViewPagerFragment : Fragment(R.layout.fragment_viewpager), MultichoiceDial
                     .withArguments {
                         putBooleanArray(
                             FilterDialogFragment.KEY_BARRAY,
-                            checkBoxes
+                            checkBoxes.copyOf()
                         )
                     }
                     .show(childFragmentManager, "filterDialogFragment")
