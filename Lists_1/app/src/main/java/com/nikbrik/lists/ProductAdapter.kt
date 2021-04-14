@@ -57,7 +57,6 @@ class ProductAdapter(
             Glide.with(itemView)
                 .load(photoLink)
                 .into(photo)
-
         }
     }
 

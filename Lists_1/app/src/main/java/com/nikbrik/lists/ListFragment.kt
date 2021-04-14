@@ -2,6 +2,7 @@ package com.nikbrik.lists
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nikbrik.lists.databinding.FragmentListBinding
@@ -12,7 +13,8 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
     private var products: Array<Product> = emptyArray()
 
     override fun OnPositiveButtonClisk(title: String, description: String) {
-        TODO("Add new item in the list")
+//        TODO("Add new item in the list")
+        Toast.makeText(context, "add new", Toast.LENGTH_SHORT).show()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

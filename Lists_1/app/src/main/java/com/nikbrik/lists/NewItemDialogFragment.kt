@@ -1,33 +1,51 @@
 package com.nikbrik.lists
 
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.widget.EditText
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nikbrik.lists.databinding.DialogNewItemBinding
 
 class NewItemDialogFragment : DialogFragment() {
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return AlertDialog.Builder(requireContext())
-            .setView(R.layout.dialog_new_item)
-            .setNegativeButton(getString(R.string.cancel_button_title)) { dialog, _ ->
-                dialog.cancel()
-            }
-            .setPositiveButton(getString(R.string.add_button_title)) { dialog, _ ->
-//                dialog.
-                getDialog()?.apply {
-                    val newTitle = findViewById<EditText>(R.id.new_title)
-                    val newDescription = findViewById<EditText>(R.id.new_description)
+    private val binding: DialogNewItemBinding by viewBinding(R.id.dialog_root_container)
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.dialog_new_item, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        with(binding) {
+            addButton.setOnClickListener {
+
+                // Проверка на заполнение
+                titleInputLayout.error =
+                    if (newTitle.text?.isBlank() ?: false) "Title is empty" else null
+                descriptionInputLayout.error =
+                    if (newDescription.text?.isBlank() ?: false) "Description is empty" else null
+
+                if (newTitle.text?.isNotBlank() ?: false && newDescription.text?.isNotBlank() ?: false) {
+
+                    // Передача данных в родительский фрагмент для обработки ввода
                     (requireParentFragment() as NewItemDialogListener).OnPositiveButtonClisk(
                         newTitle.text.toString(),
                         newDescription.text.toString(),
                     )
                 }
             }
-            .create()
+
+            cancelButton.setOnClickListener {
+                dialog?.cancel()
+            }
+        }
     }
+
 }
