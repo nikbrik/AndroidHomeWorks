@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nikbrik.lists.databinding.FragmentListBinding
+import kotlin.random.Random
 
 class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     private val binding: FragmentListBinding by viewBinding()
-    private var products: Array<Product> = arrayOf(
+    private var productAdapter: ProductAdapter? = null
+    private var products: List<Product> = listOf(
         Product.Vegetable(
             "https://unsplash.com/photos/rNYCrcjUnOA/download?force=true&w=640",
             "Test item",
@@ -18,9 +21,17 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         )
     )
 
-    override fun OnPositiveButtonClisk(title: String, description: String) {
-//        TODO("Add new item in the list")
-        Toast.makeText(context, "add new", Toast.LENGTH_SHORT).show()
+    override fun OnPositiveButtonClick(title: String, description: String) {
+        productAdapter?.apply {
+            products = listOf(
+                when (Random.nextInt(2)) {
+                    0 -> Product.Fruit("", title, description)
+                    1 -> Product.Vegetable("", title, description)
+                    else -> error("Random fun must return 0 or 1")
+                }
+            ) + products
+        }
+        productAdapter?.notifyItemInserted(0)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,16 +40,29 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         binding.addElement.setOnClickListener {
             NewItemDialogFragment().show(childFragmentManager, TAG_NEW_ITEM_DIALOG)
         }
+
+        productAdapter = ProductAdapter()
+        productAdapter?.products = products
+        binding.recyclerView.apply {
+            adapter = productAdapter
+            layoutManager = LinearLayoutManager(requireContext())
+            setHasFixedSize(true)
+        }
+        productAdapter?.notifyDataSetChanged()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelableArray(KEY_PRODUCTS, products)
+        outState.putParcelableArray(KEY_PRODUCTS, products.toTypedArray())
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        savedInstanceState?.let { products = it.getParcelableArray(KEY_PRODUCTS) as Array<Product> }
+        (savedInstanceState?.getParcelableArray(KEY_PRODUCTS))?.let { parcelableArray ->
+            parcelableArray.filterIsInstance<Product>()
+                .takeIf { filteredArray -> filteredArray.size == parcelableArray.size }
+                ?.let { products = it }
+        }
     }
 
     companion object {

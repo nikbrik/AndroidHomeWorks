@@ -5,20 +5,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class ProductAdapter(
-    private val products: List<Product>,
-) : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
+class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
+
+    lateinit var products: List<Product>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         return when (viewType) {
             TYPE_FRUIT -> FruitHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.fruit, parent),
+                LayoutInflater.from(parent.context).inflate(R.layout.fruit, parent, false),
             )
             TYPE_VEGETABLE -> VegetableHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.vegetable, parent),
+                LayoutInflater.from(parent.context).inflate(R.layout.vegetable, parent, false),
             )
             else -> error("Incorrect type")
         }
@@ -56,13 +57,16 @@ class ProductAdapter(
         fun bind(
             photoLink: String,
             title: String,
-            description: String
+            description: String,
+            @DrawableRes placeHolderId: Int,
         ) {
             this.title.text = title
             this.description.text = description
             Glide.with(itemView)
-                .load(photoLink)
-                .into(photo)
+                .load(if (photoLink.isBlank()) placeHolderId else photoLink)
+                .placeholder(placeHolderId)
+                .error(R.drawable.no_image_available)
+                .into(this.photo)
         }
     }
 
@@ -72,6 +76,7 @@ class ProductAdapter(
                 fruit.photoLink,
                 fruit.title,
                 fruit.description,
+                R.drawable.fruits_placeholder,
             )
         }
     }
@@ -82,6 +87,7 @@ class ProductAdapter(
                 vegetable.photoLink,
                 vegetable.title,
                 vegetable.description,
+                R.drawable.vegetables_placeholder
             )
         }
     }

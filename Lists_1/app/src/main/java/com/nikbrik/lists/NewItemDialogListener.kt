@@ -1,5 +1,5 @@
 package com.nikbrik.lists
 
 interface NewItemDialogListener {
-    fun OnPositiveButtonClisk(title: String, description: String)
+    fun OnPositiveButtonClick(title: String, description: String)
 }
