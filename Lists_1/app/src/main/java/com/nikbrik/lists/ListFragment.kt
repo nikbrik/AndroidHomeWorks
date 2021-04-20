@@ -10,7 +10,13 @@ import com.nikbrik.lists.databinding.FragmentListBinding
 class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     private val binding: FragmentListBinding by viewBinding()
-    private var products: Array<Product> = emptyArray()
+    private var products: Array<Product> = arrayOf(
+        Product.Vegetable(
+            "https://unsplash.com/photos/rNYCrcjUnOA/download?force=true&w=640",
+            "Test item",
+            "It it a random test element of the list",
+        )
+    )
 
     override fun OnPositiveButtonClisk(title: String, description: String) {
 //        TODO("Add new item in the list")

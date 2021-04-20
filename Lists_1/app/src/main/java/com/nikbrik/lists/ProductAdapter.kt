@@ -25,10 +25,16 @@ class ProductAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductHolder, position: Int) {
-//        when (holder) {
-//            is FruitHolder ->
-//            is VegetableHolder ->
-//        }
+        when (holder) {
+            is FruitHolder -> holder.bind(
+                products[position] as? Product.Fruit
+                    ?: error("Product at position $position is not fruit")
+            )
+            is VegetableHolder -> holder.bind(
+                products[position] as? Product.Vegetable
+                    ?: error("Product at position $position is not vegetable")
+            )
+        }
     }
 
     override fun getItemCount(): Int {
@@ -61,11 +67,23 @@ class ProductAdapter(
     }
 
     class FruitHolder(view: View) : ProductHolder(view) {
-
+        fun bind(fruit: Product.Fruit) {
+            super.bind(
+                fruit.photoLink,
+                fruit.title,
+                fruit.description,
+            )
+        }
     }
 
     class VegetableHolder(view: View) : ProductHolder(view) {
-
+        fun bind(vegetable: Product.Vegetable) {
+            super.bind(
+                vegetable.photoLink,
+                vegetable.title,
+                vegetable.description,
+            )
+        }
     }
 
     companion object {

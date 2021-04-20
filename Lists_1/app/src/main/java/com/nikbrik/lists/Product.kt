@@ -2,12 +2,22 @@ package com.nikbrik.lists
 
 import android.os.Parcelable
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import kotlinx.android.parcel.Parcelize
 
-sealed class Product : Parcelable {
-    @Parcelize
-    data class Fruit(@DrawableRes val imageId: Int) : Product()
+sealed class Product() : Parcelable {
 
     @Parcelize
-    data class Vegetable(@DrawableRes val imageId: Int) : Product()
+    data class Fruit(
+        val photoLink: String,
+        val title: String,
+        val description: String,
+    ) : Product()
+
+    @Parcelize
+    data class Vegetable(
+        val photoLink: String,
+        val title: String,
+        val description: String,
+    ) : Product()
 }

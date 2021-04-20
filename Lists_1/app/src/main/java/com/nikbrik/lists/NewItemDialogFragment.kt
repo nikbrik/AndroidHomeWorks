@@ -27,12 +27,12 @@ class NewItemDialogFragment : DialogFragment() {
             addButton.setOnClickListener {
 
                 // Проверка на заполнение
-                titleInputLayout.error =
-                    if (newTitle.text?.isBlank() ?: false) "Title is empty" else null
-                descriptionInputLayout.error =
-                    if (newDescription.text?.isBlank() ?: false) "Description is empty" else null
+                titleInputLayout.error = getString(R.string.empty_title_error)
+                    .takeIf { newTitle.text?.isBlank() == true }
+                descriptionInputLayout.error = getString(R.string.empty_description_error)
+                    .takeIf { newDescription.text?.isBlank() == true }
 
-                if (newTitle.text?.isNotBlank() ?: false && newDescription.text?.isNotBlank() ?: false) {
+                if (titleInputLayout.error == null && descriptionInputLayout.error == null) {
 
                     // Передача данных в родительский фрагмент для обработки ввода
                     (requireParentFragment() as NewItemDialogListener).OnPositiveButtonClisk(
