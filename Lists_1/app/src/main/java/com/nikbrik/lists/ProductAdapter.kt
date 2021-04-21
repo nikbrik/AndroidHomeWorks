@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlin.random.Random
 
 class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
@@ -57,8 +56,8 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
     fun addProduct(product: Product, position: Int) {
         products = products.take(position) +
-                listOf(product) +
-                products.takeLast(products.size - position)
+            listOf(product) +
+            products.takeLast(products.size - position)
         notifyItemInserted(position)
     }
 

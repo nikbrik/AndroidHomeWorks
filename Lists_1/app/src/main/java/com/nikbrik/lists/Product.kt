@@ -1,7 +1,7 @@
 package com.nikbrik.lists
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 sealed class Product() : Parcelable {
 
