@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayouts">
-    <shared>
-      <config />
-    </shared>
-  </component>
-  <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
-  </component>
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="NONE" />
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
     <expand>
@@ -31,102 +22,31 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21bc32ea-0bdd-45de-802b-d5b6b63f846f" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/FragmentExtensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/FragmentExtensions.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ListFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/NewItemDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/NewItemDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/NewItemDialogListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/NewItemDialogListener.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/Product.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/Product.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ProductAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ProductAdapter.kt" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/Product.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/Product.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
->>>>>>> refs/remotes/origin/master
+    <list default="true" id="35f77382-c840-4bfa-9257-5247a114a98e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\nikbr\.android\avd\Pixel_3a_API_30_x86.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view>
-          <tree_state>
-            <expand />
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="layoutResourceFile_vertical" />
-        <option value="Kotlin Interface" />
-        <option value="Kotlin File" />
-        <option value="Kotlin Class" />
-        <option value="layoutResourceFile" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="ProjectId" id="1r0fvXvlzXnjsKymnTTgOhnF8UL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent">
-    <property name="DEBUGGABLE_DEVICE" value="Pixel_3a_API_30_x86 [emulator-5554]" />
-    <property name="DEBUGGABLE_PROCESS" value="com.nikbrik.lists" />
-    <property name="DEBUGGER_ID" value="Auto" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\nikbr\.android\avd\Pixel_3a_API_30_x86.avd" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-04-21T19:58:39.766811600Z" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHOW_ALL_PROCESSES" value="false" />
-    <property name="android-custom-viewC:/Users/Shuteev_N/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.0/3e159bfab49c7e6495fe374e6e5e1e989ee21dcf/recyclerview-1.2.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
-    <property name="android-custom-viewC:/Users/nikbr/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.3.0/b42a5159ef2c670d26ce08246ec5aaf8f92e5a42/material-1.3.0-sources.jar!/com/google/android/material/button/MaterialButton.java_SELECTED" value="MaterialButton" />
-    <property name="android-custom-viewC:/Users/nikbr/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="emulator" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="PsdUISettings">
-    <option name="MODULE_TAB" value="Default Config" />
-    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\android_basic\Lists_1\app\src\main\res\drawable" />
-      <recent name="C:\android_basic\Lists_1\app\src\main\res\layout" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Gradle.Lists_1 [lint]">
+  <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -134,7 +54,7 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="Lists.app" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
@@ -192,98 +112,8 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Lists_1 [lint]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="lint" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Lists_1 [tasks]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="tasks" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Lists_1 [wrapper]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="wrapper" />
-          </list>
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="Lists_1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" value="" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.Lists_1 [lint]" />
-        <item itemvalue="Gradle.Lists_1 [wrapper]" />
-        <item itemvalue="Gradle.Lists_1 [tasks]" />
-        <item itemvalue="Gradle.Lists_1" />
-      </list>
-    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="21bc32ea-0bdd-45de-802b-d5b6b63f846f" name="Default Changelist" comment="" />
-      <created>1618118158810</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1618118158810</updated>
-    </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -299,142 +129,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="200" y="110" key="#PSD" timestamp="1618896797747">
+    <state x="168" y="110" key="#PSD" timestamp="1619035691281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="200" y="110" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1618896797747" />
-    <state x="94" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619034672076">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state x="94" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.728@0.0.1280.728" timestamp="1619034672076" />
-    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1618168603766">
+    <state x="157" y="110" key="#PSD/0.0.1280.728@0.0.1280.728" timestamp="1619035374409" />
+    <state x="168" y="110" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1619035691281" />
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1619035663543">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1618168603766" />
-    <state x="86" y="92" width="1108" height="544" key="AVDManager" timestamp="1619035236192">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state x="86" y="92" width="1108" height="544" key="AVDManager/0.0.1280.728@0.0.1280.728" timestamp="1619035236192" />
-    <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1619030333371" />
-    <state x="263" y="118" key="AndroidCreateResourceFileDialog" timestamp="1618396659057">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="263" y="118" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1618396659057" />
-    <state x="499" y="299" key="AndroidCreateXmlResourceDialog" timestamp="1618848123292">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="499" y="299" key="AndroidCreateXmlResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1618848123292" />
-    <state x="445" y="110" key="AndroidProcessChooserDialog" timestamp="1619034444846">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state x="445" y="110" key="AndroidProcessChooserDialog/0.0.1280.728@0.0.1280.728" timestamp="1619034444846" />
-    <state x="475" y="110" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1618381879950" />
-    <state width="487" height="438" key="DebuggerActiveHint" timestamp="1619032067399">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="487" height="438" key="DebuggerActiveHint/0.0.1280.728@0.0.1280.728" timestamp="1619032067399" />
-    <state width="487" height="438" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1619029624979" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1618917587396">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1618917587396" />
-<<<<<<< HEAD
-    <state width="1237" height="179" key="GridCell.Tab.0.bottom" timestamp="1619035153956">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="1237" height="179" key="GridCell.Tab.0.bottom/0.0.1280.728@0.0.1280.728" timestamp="1619035153956" />
-    <state width="1323" height="196" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619028729271" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1237" height="179" key="GridCell.Tab.0.center" timestamp="1619035153956">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="1237" height="179" key="GridCell.Tab.0.center/0.0.1280.728@0.0.1280.728" timestamp="1619035153956" />
-    <state width="1323" height="196" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1619028729271" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1237" height="179" key="GridCell.Tab.0.left" timestamp="1619035153956">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="1237" height="179" key="GridCell.Tab.0.left/0.0.1280.728@0.0.1280.728" timestamp="1619035153956" />
-    <state width="1323" height="196" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1619028729271" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1237" height="179" key="GridCell.Tab.0.right" timestamp="1619035153956">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="1237" height="179" key="GridCell.Tab.0.right/0.0.1280.728@0.0.1280.728" timestamp="1619035153956" />
-    <state width="1323" height="196" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1619028729271" />
-=======
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1619003103505">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619003103505" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1619003103505">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1619003103505" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1619003103505">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1619003103505" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1619003103505">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1619003103505" />
->>>>>>> refs/remotes/origin/master
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1237" height="179" key="GridCell.Tab.1.bottom" timestamp="1619034570275">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="1237" height="179" key="GridCell.Tab.1.bottom/0.0.1280.728@0.0.1280.728" timestamp="1619034570275" />
-    <state width="1323" height="179" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618928622854" />
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state width="1237" height="179" key="GridCell.Tab.1.center" timestamp="1619034570275">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="1237" height="179" key="GridCell.Tab.1.center/0.0.1280.728@0.0.1280.728" timestamp="1619034570275" />
-    <state width="1323" height="179" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1618928622854" />
-    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state width="1237" height="179" key="GridCell.Tab.1.left" timestamp="1619034570275">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="1237" height="179" key="GridCell.Tab.1.left/0.0.1280.728@0.0.1280.728" timestamp="1619034570275" />
-    <state width="1323" height="179" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1618928622854" />
-    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1237" height="179" key="GridCell.Tab.1.right" timestamp="1619034570275">
-      <screen x="0" y="0" width="1280" height="728" />
-    </state>
-    <state width="1237" height="179" key="GridCell.Tab.1.right/0.0.1280.728@0.0.1280.728" timestamp="1619034570275" />
-    <state width="1323" height="179" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1618928622854" />
-    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1619028111476">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1619028111476" />
-    <state x="499" y="141" key="chooseDestDirectoryDialog" timestamp="1618932841076">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="499" y="141" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1618932841076" />
-    <state x="526" y="136" key="refactoring.ChangeSignatureDialog" timestamp="1618135836290">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="526" y="136" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1618135836290" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1618898334185">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1618898334185" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1618368340014">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618368340014" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="app">
-        <watch expression="binding.recyclerView.adapter" language="kotlin" />
-        <watch expression="productAdapter?.products?.isEmpty()" language="kotlin" />
-      </configuration>
-    </watches-manager>
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1619035663543" />
   </component>
 </project>
