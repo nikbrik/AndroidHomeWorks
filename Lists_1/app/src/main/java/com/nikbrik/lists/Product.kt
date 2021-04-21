@@ -1,8 +1,6 @@
 package com.nikbrik.lists
 
 import android.os.Parcelable
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import kotlinx.android.parcel.Parcelize
 
 sealed class Product() : Parcelable {

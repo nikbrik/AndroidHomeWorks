@@ -32,19 +32,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21bc32ea-0bdd-45de-802b-d5b6b63f846f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/fruits_placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/no_image_available.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/vegetables_placeholder.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/FragmentExtensions.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/FragmentExtensions.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ListFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/NewItemDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/NewItemDialogFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/NewItemDialogListener.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/NewItemDialogListener.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/Product.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/Product.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ProductAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ProductAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_list.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fruit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fruit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/vegetable.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/vegetable.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,9 +93,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DEBUGGABLE_DEVICE" value="xiaomi-redmi_note_8_pro-vw6pk7rs7tsw5lif" />
+    <property name="DEBUGGABLE_DEVICE" value="Pixel_3a_API_30_x86 [emulator-5554]" />
     <property name="DEBUGGABLE_PROCESS" value="com.nikbrik.lists" />
     <property name="DEBUGGER_ID" value="Auto" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\nikbr\.android\avd\Pixel_3a_API_30_x86.avd" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-04-21T19:58:39.766811600Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android-custom-viewC:/Users/Shuteev_N/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.0/3e159bfab49c7e6495fe374e6e5e1e989ee21dcf/recyclerview-1.2.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
@@ -217,14 +215,19 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="200" y="110" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1618896797747" />
+    <state x="94" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619034672076">
+      <screen x="0" y="0" width="1280" height="728" />
+    </state>
+    <state x="94" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.728@0.0.1280.728" timestamp="1619034672076" />
     <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1618168603766">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1618168603766" />
-    <state x="92" y="92" width="1182" height="544" key="AVDManager" timestamp="1618907914435">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="86" y="92" width="1108" height="544" key="AVDManager" timestamp="1619035236192">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1618907914435" />
+    <state x="86" y="92" width="1108" height="544" key="AVDManager/0.0.1280.728@0.0.1280.728" timestamp="1619035236192" />
+    <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1619030333371" />
     <state x="263" y="118" key="AndroidCreateResourceFileDialog" timestamp="1618396659057">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -233,62 +236,72 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="499" y="299" key="AndroidCreateXmlResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1618848123292" />
-    <state x="475" y="110" key="AndroidProcessChooserDialog" timestamp="1618381879950">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="445" y="110" key="AndroidProcessChooserDialog" timestamp="1619034444846">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
+    <state x="445" y="110" key="AndroidProcessChooserDialog/0.0.1280.728@0.0.1280.728" timestamp="1619034444846" />
     <state x="475" y="110" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1618381879950" />
-    <state width="424" height="438" key="DebuggerActiveHint" timestamp="1618918877446">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="487" height="438" key="DebuggerActiveHint" timestamp="1619032067399">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="424" height="438" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1618918877446" />
+    <state width="487" height="438" key="DebuggerActiveHint/0.0.1280.728@0.0.1280.728" timestamp="1619032067399" />
+    <state width="487" height="438" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1619029624979" />
     <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1618917587396">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1618917587396" />
-    <state width="1323" height="196" key="GridCell.Tab.0.bottom" timestamp="1618928728273">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="179" key="GridCell.Tab.0.bottom" timestamp="1619035153956">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="1323" height="196" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618928728273" />
+    <state width="1237" height="179" key="GridCell.Tab.0.bottom/0.0.1280.728@0.0.1280.728" timestamp="1619035153956" />
+    <state width="1323" height="196" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619028729271" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="196" key="GridCell.Tab.0.center" timestamp="1618928728272">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="179" key="GridCell.Tab.0.center" timestamp="1619035153956">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="1323" height="196" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1618928728272" />
+    <state width="1237" height="179" key="GridCell.Tab.0.center/0.0.1280.728@0.0.1280.728" timestamp="1619035153956" />
+    <state width="1323" height="196" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1619028729271" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="196" key="GridCell.Tab.0.left" timestamp="1618928728272">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="179" key="GridCell.Tab.0.left" timestamp="1619035153956">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="1323" height="196" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1618928728272" />
+    <state width="1237" height="179" key="GridCell.Tab.0.left/0.0.1280.728@0.0.1280.728" timestamp="1619035153956" />
+    <state width="1323" height="196" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1619028729271" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="196" key="GridCell.Tab.0.right" timestamp="1618928728272">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="179" key="GridCell.Tab.0.right" timestamp="1619035153956">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
-    <state width="1323" height="196" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1618928728272" />
+    <state width="1237" height="179" key="GridCell.Tab.0.right/0.0.1280.728@0.0.1280.728" timestamp="1619035153956" />
+    <state width="1323" height="196" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1619028729271" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.1.bottom" timestamp="1618928622854">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="179" key="GridCell.Tab.1.bottom" timestamp="1619034570275">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
+    <state width="1237" height="179" key="GridCell.Tab.1.bottom/0.0.1280.728@0.0.1280.728" timestamp="1619034570275" />
     <state width="1323" height="179" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618928622854" />
     <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state width="1323" height="179" key="GridCell.Tab.1.center" timestamp="1618928622854">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="179" key="GridCell.Tab.1.center" timestamp="1619034570275">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
+    <state width="1237" height="179" key="GridCell.Tab.1.center/0.0.1280.728@0.0.1280.728" timestamp="1619034570275" />
     <state width="1323" height="179" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1618928622854" />
     <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state width="1323" height="179" key="GridCell.Tab.1.left" timestamp="1618928622854">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="179" key="GridCell.Tab.1.left" timestamp="1619034570275">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
+    <state width="1237" height="179" key="GridCell.Tab.1.left/0.0.1280.728@0.0.1280.728" timestamp="1619034570275" />
     <state width="1323" height="179" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1618928622854" />
     <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.1.right" timestamp="1618928622854">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="179" key="GridCell.Tab.1.right" timestamp="1619034570275">
+      <screen x="0" y="0" width="1280" height="728" />
     </state>
+    <state width="1237" height="179" key="GridCell.Tab.1.right/0.0.1280.728@0.0.1280.728" timestamp="1619034570275" />
     <state width="1323" height="179" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1618928622854" />
     <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1618907914076">
+    <state x="184" y="8" key="SettingsEditor" timestamp="1619028111476">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1618907914076" />
+    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1619028111476" />
     <state x="499" y="141" key="chooseDestDirectoryDialog" timestamp="1618932841076">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -309,8 +322,8 @@
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="app">
-        <watch expression="newTitle.text.isNotBlank()" language="kotlin" />
-        <watch expression="it.filterIsInstance&lt;Product&gt;().toTypedArray()" language="kotlin" />
+        <watch expression="binding.recyclerView.adapter" language="kotlin" />
+        <watch expression="productAdapter?.products?.isEmpty()" language="kotlin" />
       </configuration>
     </watches-manager>
   </component>

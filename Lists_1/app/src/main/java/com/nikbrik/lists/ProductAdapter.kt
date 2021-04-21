@@ -8,10 +8,11 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import kotlin.random.Random
 
 class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
-    lateinit var products: List<Product>
+    var products = emptyList<Product>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         return when (viewType) {
@@ -47,6 +48,18 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
             is Product.Fruit -> TYPE_FRUIT
             is Product.Vegetable -> TYPE_VEGETABLE
         }
+    }
+
+    fun updateProducts(products: List<Product>) {
+        this.products = products
+        notifyDataSetChanged()
+    }
+
+    fun addProduct(product: Product, position: Int) {
+        products = products.take(position) +
+                listOf(product) +
+                products.takeLast(products.size - position)
+        notifyItemInserted(position)
     }
 
     abstract class ProductHolder(view: View) : RecyclerView.ViewHolder(view) {
