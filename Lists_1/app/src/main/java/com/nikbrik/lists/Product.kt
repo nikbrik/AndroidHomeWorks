@@ -3,7 +3,7 @@ package com.nikbrik.lists
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-sealed class Product() : Parcelable {
+sealed class Product : Parcelable {
 
     @Parcelize
     data class Fruit(

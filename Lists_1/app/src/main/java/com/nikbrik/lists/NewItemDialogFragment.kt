@@ -35,7 +35,7 @@ class NewItemDialogFragment : DialogFragment() {
                 if (titleInputLayout.error == null && descriptionInputLayout.error == null) {
 
                     // Передача данных в родительский фрагмент для обработки ввода
-                    (requireParentFragment() as NewItemDialogListener).OnPositiveButtonClick(
+                    (requireParentFragment() as NewItemDialogListener).onPositiveButtonClick(
                         newTitle.text.toString(),
                         newDescription.text.toString(),
                     )

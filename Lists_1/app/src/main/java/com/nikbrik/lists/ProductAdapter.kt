@@ -9,7 +9,9 @@ import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
+class ProductAdapter(
+    private val onClickAction: (position: Int) -> Unit,
+) : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
     var products = emptyList<Product>()
 
@@ -17,9 +19,11 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
         return when (viewType) {
             TYPE_FRUIT -> FruitHolder(
                 LayoutInflater.from(parent.context).inflate(R.layout.fruit, parent, false),
+                onClickAction,
             )
             TYPE_VEGETABLE -> VegetableHolder(
                 LayoutInflater.from(parent.context).inflate(R.layout.vegetable, parent, false),
+                onClickAction,
             )
             else -> error("Incorrect type")
         }
@@ -61,10 +65,27 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
         notifyItemInserted(position)
     }
 
-    abstract class ProductHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val photo = view.findViewById<ImageView>(R.id.photo)
-        val title = view.findViewById<TextView>(R.id.title)
-        val description = view.findViewById<TextView>(R.id.description)
+    fun removeProduct(position: Int) {
+        if (products.isNotEmpty() && position >= 0) {
+            products = products.take(position) +
+                products.takeLast(products.size - position - 1)
+            notifyItemRemoved(position)
+        }
+    }
+
+    abstract class ProductHolder(
+        view: View,
+        onClickAction: (position: Int) -> Unit,
+    ) : RecyclerView.ViewHolder(view) {
+        private val photo: ImageView = view.findViewById(R.id.photo)
+        private val title: TextView = view.findViewById(R.id.title)
+        private val description: TextView = view.findViewById(R.id.description)
+
+        init {
+            view.setOnClickListener {
+                onClickAction(bindingAdapterPosition)
+            }
+        }
 
         fun bind(
             photoLink: String,
@@ -82,7 +103,10 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
         }
     }
 
-    class FruitHolder(view: View) : ProductHolder(view) {
+    class FruitHolder(
+        view: View,
+        onClickAction: (position: Int) -> Unit,
+    ) : ProductHolder(view, onClickAction) {
         fun bind(fruit: Product.Fruit) {
             super.bind(
                 fruit.photoLink,
@@ -93,7 +117,10 @@ class ProductAdapter : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
         }
     }
 
-    class VegetableHolder(view: View) : ProductHolder(view) {
+    class VegetableHolder(
+        view: View,
+        onClickAction: (position: Int) -> Unit,
+    ) : ProductHolder(view, onClickAction) {
         fun bind(vegetable: Product.Vegetable) {
             super.bind(
                 vegetable.photoLink,

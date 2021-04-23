@@ -7,4 +7,5 @@
     <string name="add_button_title">Add</string>
     <string name="empty_title_error">Title is empty</string>
     <string name="empty_description_error">Description is empty</string>
+    <string name="recycler_view_placeholder_text">Список продуктов пуст</string>
 </resources>
