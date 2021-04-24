@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lists</string>
+    <string name="add_element_description">Add element</string>
+    <string name="set_title_hint">Set title</string>
+    <string name="set_description_hint">Set description</string>
+    <string name="cancel_button_title">Cancel</string>
+    <string name="add_button_title">Add</string>
+    <string name="empty_title_error">Title is empty</string>
+    <string name="empty_description_error">Description is empty</string>
+    <string name="recycler_view_placeholder_text">Список продуктов пуст</string>
+</resources>
