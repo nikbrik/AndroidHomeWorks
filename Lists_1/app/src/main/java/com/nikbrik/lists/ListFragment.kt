@@ -20,6 +20,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
             "It it a random test element of the list",
         )
     )
+    private var isRestored = false
 
     override fun onPositiveButtonClick(title: String, description: String) {
         productAdapter.addProduct(
@@ -57,7 +58,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
     override fun onResume() {
         super.onResume()
 
-        if (productAdapter.products.isEmpty())
+        if (isRestored.not())
             productAdapter.updateProducts(
                 run {
                     val products: MutableList<Product> = emptyList<Product>().toMutableList()
@@ -90,6 +91,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
                 .takeIf { filteredArray -> filteredArray.size == parcelableArray.size }
                 ?.let { productAdapter.updateProducts(it) }
         }
+        isRestored = true
     }
 
     companion object {

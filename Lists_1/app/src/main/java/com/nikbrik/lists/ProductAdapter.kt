@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.nikbrik.lists.databinding.FruitBinding
+import com.nikbrik.lists.databinding.VegetableBinding
 
 class ProductAdapter(
     private val onClickAction: (position: Int) -> Unit,
@@ -16,15 +18,29 @@ class ProductAdapter(
     var products = emptyList<Product>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
-        return when (viewType) {
-            TYPE_FRUIT -> FruitHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.fruit, parent, false),
-                onClickAction,
-            )
-            TYPE_VEGETABLE -> VegetableHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.vegetable, parent, false),
-                onClickAction,
-            )
+        when (viewType) {
+            TYPE_FRUIT -> {
+                val binding = FruitBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                return FruitHolder(
+                    binding,
+                    onClickAction,
+                )
+            }
+            TYPE_VEGETABLE -> {
+                val binding = VegetableBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
+                return VegetableHolder(
+                    binding,
+                    onClickAction,
+                )
+            }
             else -> error("Incorrect type")
         }
     }
@@ -60,15 +76,15 @@ class ProductAdapter(
 
     fun addProduct(product: Product, position: Int) {
         products = products.take(position) +
-            listOf(product) +
-            products.takeLast(products.size - position)
+                listOf(product) +
+                products.takeLast(products.size - position)
         notifyItemInserted(position)
     }
 
     fun removeProduct(position: Int) {
         if (products.isNotEmpty() && position >= 0) {
             products = products.take(position) +
-                products.takeLast(products.size - position - 1)
+                    products.takeLast(products.size - position - 1)
             notifyItemRemoved(position)
         }
     }
@@ -77,9 +93,9 @@ class ProductAdapter(
         view: View,
         onClickAction: (position: Int) -> Unit,
     ) : RecyclerView.ViewHolder(view) {
-        private val photo: ImageView = view.findViewById(R.id.photo)
-        private val title: TextView = view.findViewById(R.id.title)
-        private val description: TextView = view.findViewById(R.id.description)
+        lateinit var photo: ImageView
+        lateinit var title: TextView
+        lateinit var description: TextView
 
         init {
             view.setOnClickListener {
@@ -104,9 +120,16 @@ class ProductAdapter(
     }
 
     class FruitHolder(
-        view: View,
+        binding: FruitBinding,
         onClickAction: (position: Int) -> Unit,
-    ) : ProductHolder(view, onClickAction) {
+    ) : ProductHolder(binding.root, onClickAction) {
+
+        init {
+            photo = binding.photo
+            title = binding.title
+            description = binding.description
+        }
+
         fun bind(fruit: Product.Fruit) {
             super.bind(
                 fruit.photoLink,
@@ -118,9 +141,16 @@ class ProductAdapter(
     }
 
     class VegetableHolder(
-        view: View,
+        binding: VegetableBinding,
         onClickAction: (position: Int) -> Unit,
-    ) : ProductHolder(view, onClickAction) {
+    ) : ProductHolder(binding.root, onClickAction) {
+
+        init {
+            photo = binding.photo
+            title = binding.title
+            description = binding.description
+        }
+
         fun bind(vegetable: Product.Vegetable) {
             super.bind(
                 vegetable.photoLink,
