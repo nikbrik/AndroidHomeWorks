@@ -62,12 +62,13 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
             productAdapter.updateProducts(
                 run {
                     val products: MutableList<Product> = emptyList<Product>().toMutableList()
-                    for (i in 1..10) {
+                    for (i in 1..1000) {
                         products += startProducts
                     }
                     products.toList()
                 }
             )
+        updateRecyclerViewPlaceholder()
     }
 
     private fun initList() {
@@ -87,11 +88,11 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
         (savedInstanceState?.getParcelableArray(KEY_PRODUCTS))?.let { parcelableArray ->
+            isRestored = true
             parcelableArray.filterIsInstance<Product>()
                 .takeIf { filteredArray -> filteredArray.size == parcelableArray.size }
                 ?.let { productAdapter.updateProducts(it) }
         }
-        isRestored = true
     }
 
     companion object {
