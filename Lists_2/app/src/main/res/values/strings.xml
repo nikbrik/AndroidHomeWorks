@@ -8,4 +8,7 @@
     <string name="empty_title_error">Title is empty</string>
     <string name="empty_description_error">Description is empty</string>
     <string name="recycler_view_placeholder_text">Список продуктов пуст</string>
+    <string name="linear_list_button">Linear list</string>
+    <string name="grid_list_button">Grid list</string>
+    <string name="staggered_grid_list_button">Staggered grid list</string>
 </resources>

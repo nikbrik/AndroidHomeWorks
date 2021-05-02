@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nikbrik.lists.databinding.FragmentListBinding
 import kotlin.random.Random
@@ -21,6 +24,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         )
     )
     private var isRestored = false
+    private var layoutManagerType = TYPE_LINEAR
 
     override fun onPositiveButtonClick(title: String, description: String) {
         productAdapter.addProduct(
@@ -46,6 +50,12 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments?.getInt(KEY_LAYOUT_MANAGER_TYPE)?.let { layoutManagerType = it }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -62,7 +72,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
             productAdapter.updateProducts(
                 run {
                     val products: MutableList<Product> = emptyList<Product>().toMutableList()
-                    for (i in 1..1000) {
+                    for (i in 1..20) {
                         products += startProducts
                     }
                     products.toList()
@@ -75,7 +85,15 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         productAdapter = ProductAdapter { position -> removeClickedItem(position) }
         binding.recyclerView.apply {
             adapter = productAdapter
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = when (layoutManagerType) {
+                TYPE_GRID -> GridLayoutManager(requireContext(), 3)
+                TYPE_STAGGERED_GRID -> StaggeredGridLayoutManager(
+                    3,
+                    StaggeredGridLayoutManager.VERTICAL
+                )
+                else -> LinearLayoutManager(requireContext())
+            }
+
             setHasFixedSize(true)
         }
     }
@@ -98,5 +116,9 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
     companion object {
         const val KEY_PRODUCTS = "KEY_PRODUCTS"
         const val TAG_NEW_ITEM_DIALOG = "TAG_NEW_ITEM_DIALOG"
+        const val KEY_LAYOUT_MANAGER_TYPE = "KEY_LAYOUT_MANAGER_TYPE"
+        const val TYPE_LINEAR = 1
+        const val TYPE_GRID = 2
+        const val TYPE_STAGGERED_GRID = 3
     }
 }

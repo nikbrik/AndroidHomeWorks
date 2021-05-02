@@ -32,16 +32,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21bc32ea-0bdd-45de-802b-d5b6b63f846f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ListFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ProductAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nikbrik/lists/ProductAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/Extensions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fragments_1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Fragments_1/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/ListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/ListFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[SerialNumber@vw6pk7rs7tsw5lif]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\nikbr\.android\avd\Pixel_3a_API_30_x86.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -104,7 +109,7 @@
     <property name="android-custom-viewC:/Users/nikbr/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDK Location" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />

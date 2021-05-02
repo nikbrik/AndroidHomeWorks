@@ -23,12 +23,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3c6b17f-1033-4b1d-bbab-1508af964de8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Fragments_1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Fragments_1/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/Extensions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ViewAndLayout/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BuildAndResources/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BuildAndResources/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Fragments_1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Fragments_1/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Lists_1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_1/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_1/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_1/app/src/main/java/com/nikbrik/lists/NewItemDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_1/app/src/main/java/com/nikbrik/lists/NewItemDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_1/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_1/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_1/app/src/main/res/layout/dialog_new_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_1/app/src/main/res/layout/dialog_new_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/ListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/ListFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/res/layout/fruit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/res/layout/fruit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/res/layout/vegetable.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/res/layout/vegetable.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewAndLayout/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ViewAndLayout/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ViewAndLayout/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ViewAndLayout/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,5 +79,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
