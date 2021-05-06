@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nikbrik.lists.databinding.FruitBinding
@@ -15,7 +17,7 @@ class ProductAdapter(
     private val onClickAction: (position: Int) -> Unit,
 ) : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
-    var products = emptyList<Product>()
+    val differ = AsyncListDiffer<Product>(this, ProductDiffUtilCallback())
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         when (viewType) {
@@ -48,44 +50,44 @@ class ProductAdapter(
     override fun onBindViewHolder(holder: ProductHolder, position: Int) {
         when (holder) {
             is FruitHolder -> holder.bind(
-                products[position] as? Product.Fruit
+                differ.currentList[position] as? Product.Fruit
                     ?: error("Product at position $position is not fruit")
             )
             is VegetableHolder -> holder.bind(
-                products[position] as? Product.Vegetable
+                differ.currentList[position] as? Product.Vegetable
                     ?: error("Product at position $position is not vegetable")
             )
         }
     }
 
     override fun getItemCount(): Int {
-        return products.size
+        return differ.currentList.size
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (products[position]) {
+        return when (differ.currentList[position]) {
             is Product.Fruit -> TYPE_FRUIT
             is Product.Vegetable -> TYPE_VEGETABLE
         }
     }
 
     fun updateProducts(products: List<Product>) {
-        this.products = products
-        notifyDataSetChanged()
+        differ.submitList(products)
     }
 
     fun addProduct(product: Product, position: Int) {
-        products = products.take(position) +
+        val newList = differ.currentList.take(position) +
             listOf(product) +
-            products.takeLast(products.size - position)
-        notifyItemInserted(position)
+            differ.currentList.takeLast(differ.currentList.size - position)
+        updateProducts(newList)
     }
 
     fun removeProduct(position: Int) {
-        if (products.isNotEmpty() && position >= 0) {
-            products = products.take(position) +
-                products.takeLast(products.size - position - 1)
-            notifyItemRemoved(position)
+        if (differ.currentList.isNotEmpty() && position >= 0) {
+            updateProducts(
+                differ.currentList.take(position) +
+                    differ.currentList.takeLast(differ.currentList.size - position - 1)
+            )
         }
     }
 
@@ -164,5 +166,15 @@ class ProductAdapter(
     companion object {
         const val TYPE_FRUIT = 1
         const val TYPE_VEGETABLE = 2
+    }
+
+    class ProductDiffUtilCallback : DiffUtil.ItemCallback<Product>() {
+        override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem::class == newItem::class && oldItem.uuid == newItem.uuid
+        }
+
+        override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+            return oldItem == newItem
+        }
     }
 }

@@ -14,25 +14,34 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
         binding.linearListButton.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, ListFragment().withArguments {
-                    putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_LINEAR)
-                })
+                .replace(
+                    R.id.container,
+                    ListFragment().withArguments {
+                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_LINEAR)
+                    }
+                )
                 .addToBackStack(null)
                 .commit()
         }
         binding.gridListButton.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, ListFragment().withArguments {
-                    putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_GRID)
-                })
+                .replace(
+                    R.id.container,
+                    ListFragment().withArguments {
+                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_GRID)
+                    }
+                )
                 .addToBackStack(null)
                 .commit()
         }
         binding.staggeredGridListButton.setOnClickListener {
             parentFragmentManager.beginTransaction()
-                .replace(R.id.container, ListFragment().withArguments {
-                    putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_STAGGERED_GRID)
-                })
+                .replace(
+                    R.id.container,
+                    ListFragment().withArguments {
+                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_STAGGERED_GRID)
+                    }
+                )
                 .addToBackStack(null)
                 .commit()
         }

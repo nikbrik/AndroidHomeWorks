@@ -4,25 +4,19 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nikbrik.lists.databinding.FragmentListBinding
+import jp.wasabeef.recyclerview.animators.ScaleInAnimator
 import kotlin.random.Random
 
 class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     private val binding: FragmentListBinding by viewBinding()
     private var productAdapter: ProductAdapter by autoCleared()
-    private var startProducts: List<Product> = listOf(
-        Product.Vegetable(
-            "https://unsplash.com/photos/rNYCrcjUnOA/download?force=true&w=640",
-            "Test item",
-            "It it a random test element of the list",
-        )
-    )
     private var isRestored = false
     private var layoutManagerType = TYPE_LINEAR
 
@@ -46,7 +40,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     private fun updateRecyclerViewPlaceholder() {
         productAdapter.apply {
-            binding.recyclerViewPlaceholder.isVisible = products.isEmpty()
+            binding.recyclerViewPlaceholder.isVisible = differ.currentList.isEmpty()
         }
     }
 
@@ -73,7 +67,11 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
                 run {
                     val products: MutableList<Product> = emptyList<Product>().toMutableList()
                     for (i in 1..20) {
-                        products += startProducts
+                        products += Product.Vegetable(
+                            "https://unsplash.com/photos/rNYCrcjUnOA/download?force=true&w=640",
+                            "Test item",
+                            "It it a random test element of the list",
+                        )
                     }
                     products.toList()
                 }
@@ -86,6 +84,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         binding.recyclerView.apply {
             adapter = productAdapter
             layoutManager = when (layoutManagerType) {
+                TYPE_LINEAR -> LinearLayoutManager(requireContext())
                 TYPE_GRID -> GridLayoutManager(requireContext(), 3)
                 TYPE_STAGGERED_GRID -> StaggeredGridLayoutManager(
                     3,
@@ -93,6 +92,20 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
                 )
                 else -> LinearLayoutManager(requireContext())
             }
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.HORIZONTAL
+                )
+            )
+
+            itemAnimator = ScaleInAnimator()
 
             setHasFixedSize(true)
         }
@@ -100,7 +113,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelableArray(KEY_PRODUCTS, productAdapter.products.toTypedArray())
+        outState.putParcelableArray(KEY_PRODUCTS, productAdapter.differ.currentList.toTypedArray())
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {

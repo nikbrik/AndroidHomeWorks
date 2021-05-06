@@ -67,4 +67,6 @@ dependencies {
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+
 }

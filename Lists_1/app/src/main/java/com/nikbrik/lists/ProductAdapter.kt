@@ -76,15 +76,15 @@ class ProductAdapter(
 
     fun addProduct(product: Product, position: Int) {
         products = products.take(position) +
-                listOf(product) +
-                products.takeLast(products.size - position)
+            listOf(product) +
+            products.takeLast(products.size - position)
         notifyItemInserted(position)
     }
 
     fun removeProduct(position: Int) {
         if (products.isNotEmpty() && position >= 0) {
             products = products.take(position) +
-                    products.takeLast(products.size - position - 1)
+                products.takeLast(products.size - position - 1)
             notifyItemRemoved(position)
         }
     }

@@ -2,8 +2,11 @@ package com.nikbrik.lists
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import java.util.UUID
 
-sealed class Product : Parcelable {
+sealed class Product(
+    val uuid: UUID = UUID.randomUUID(),
+) : Parcelable {
 
     @Parcelize
     data class Fruit(
