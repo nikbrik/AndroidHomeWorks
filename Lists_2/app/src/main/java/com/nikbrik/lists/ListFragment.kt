@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListUpdateCallback
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nikbrik.lists.databinding.FragmentListBinding
@@ -29,7 +30,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
             },
             0,
         )
-        binding.recyclerView.scrollToPosition(0)
+        binding.recyclerView.smoothScrollToPosition(0)
         updateRecyclerViewPlaceholder()
     }
 
@@ -134,4 +135,5 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         const val TYPE_GRID = 2
         const val TYPE_STAGGERED_GRID = 3
     }
+
 }
