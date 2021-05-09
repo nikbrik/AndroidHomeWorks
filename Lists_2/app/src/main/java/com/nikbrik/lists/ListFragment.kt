@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListUpdateCallback
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.nikbrik.lists.adapters.ProductAdapter
 import com.nikbrik.lists.databinding.FragmentListBinding
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator
 import kotlin.random.Random
@@ -41,7 +41,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     private fun updateRecyclerViewPlaceholder() {
         productAdapter.apply {
-            binding.recyclerViewPlaceholder.isVisible = differ.currentList.isEmpty()
+            binding.recyclerViewPlaceholder.isVisible = isEmpty
         }
     }
 
@@ -67,7 +67,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
             productAdapter.updateProducts(
                 run {
                     val products: MutableList<Product> = emptyList<Product>().toMutableList()
-                    for (i in 1..20) {
+                    for (i in 1..1000) {
                         products += Product.Vegetable(
                             "https://unsplash.com/photos/rNYCrcjUnOA/download?force=true&w=640",
                             "Test item",
@@ -114,7 +114,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelableArray(KEY_PRODUCTS, productAdapter.differ.currentList.toTypedArray())
+        outState.putParcelableArray(KEY_PRODUCTS, productAdapter.currentListToArray)
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
@@ -135,5 +135,4 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         const val TYPE_GRID = 2
         const val TYPE_STAGGERED_GRID = 3
     }
-
 }
