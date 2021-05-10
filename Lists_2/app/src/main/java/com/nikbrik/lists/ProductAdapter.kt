@@ -17,7 +17,7 @@ class ProductAdapter(
     private val onClickAction: (position: Int) -> Unit,
 ) : RecyclerView.Adapter<ProductAdapter.ProductHolder>() {
 
-    val differ = AsyncListDiffer<Product>(this, ProductDiffUtilCallback())
+    val differ = AsyncListDiffer(this, ProductDiffUtilCallback())
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductHolder {
         when (viewType) {

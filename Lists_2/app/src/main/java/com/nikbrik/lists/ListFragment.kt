@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListUpdateCallback
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.nikbrik.lists.databinding.FragmentListBinding
@@ -93,19 +91,19 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
                 )
                 else -> LinearLayoutManager(requireContext())
             }
-            addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
-                )
-            )
-            addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.HORIZONTAL
-                )
-            )
-
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    requireContext(),
+//                    DividerItemDecoration.VERTICAL
+//                )
+//            )
+//            addItemDecoration(
+//                DividerItemDecoration(
+//                    requireContext(),
+//                    DividerItemDecoration.HORIZONTAL
+//                )
+//
+            addItemDecoration(CustomItemDecoration())
             itemAnimator = ScaleInAnimator()
 
             setHasFixedSize(true)
