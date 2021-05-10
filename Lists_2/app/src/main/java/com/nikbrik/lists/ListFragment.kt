@@ -6,8 +6,11 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.nikbrik.lists.adapters.EndlessRecyclerViewScrollListener
+import com.nikbrik.lists.adapters.ProductAdapter
 import com.nikbrik.lists.databinding.FragmentListBinding
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator
 import kotlin.random.Random
@@ -39,7 +42,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     private fun updateRecyclerViewPlaceholder() {
         productAdapter.apply {
-            binding.recyclerViewPlaceholder.isVisible = differ.currentList.isEmpty()
+            binding.recyclerViewPlaceholder.isVisible = isEmpty
         }
     }
 
@@ -47,6 +50,7 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         super.onCreate(savedInstanceState)
 
         arguments?.getInt(KEY_LAYOUT_MANAGER_TYPE)?.let { layoutManagerType = it }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,20 +66,19 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         super.onResume()
 
         if (isRestored.not())
-            productAdapter.updateProducts(
-                run {
-                    val products: MutableList<Product> = emptyList<Product>().toMutableList()
-                    for (i in 1..20) {
-                        products += Product.Vegetable(
-                            "https://unsplash.com/photos/rNYCrcjUnOA/download?force=true&w=640",
-                            "Test item",
-                            "It it a random test element of the list",
-                        )
-                    }
-                    products.toList()
-                }
-            )
+            productAdapter.updateProducts(createNewList(emptyList<Product>().toMutableList()))
         updateRecyclerViewPlaceholder()
+    }
+
+    private fun createNewList(products: MutableList<Product>): List<Product> {
+        for (i in 1..40) {
+            products += Product.Vegetable(
+                "https://unsplash.com/photos/rNYCrcjUnOA/download?force=true&w=640",
+                "Test item",
+                "It it a random test element of the list",
+            )
+        }
+        return products.toList()
     }
 
     private fun initList() {
@@ -107,12 +110,23 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
             itemAnimator = ScaleInAnimator()
 
             setHasFixedSize(true)
+
+            layoutManager?.let {
+                addOnScrollListener(object : EndlessRecyclerViewScrollListener(it) {
+                    override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
+                        if (totalItemsCount < 100) {
+                            val newList = createNewList(productAdapter.currentList.toMutableList())
+                            productAdapter.updateProducts(newList)
+                        }
+                    }
+                })
+            }
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putParcelableArray(KEY_PRODUCTS, productAdapter.differ.currentList.toTypedArray())
+        outState.putParcelableArray(KEY_PRODUCTS, productAdapter.currentList.toTypedArray())
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
@@ -133,5 +147,4 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         const val TYPE_GRID = 2
         const val TYPE_STAGGERED_GRID = 3
     }
-
 }
