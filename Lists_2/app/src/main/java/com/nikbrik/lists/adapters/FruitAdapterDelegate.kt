@@ -6,6 +6,7 @@ import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.nikbrik.lists.Product
 import com.nikbrik.lists.R
 import com.nikbrik.lists.databinding.FruitBinding
+import com.nikbrik.lists.databinding.FruitGridBinding
 
 class FruitAdapterDelegate(
     private val onClickAction: (position: Int) -> Unit,
@@ -50,6 +51,51 @@ class FruitAdapterDelegate(
                 fruit.photoLink,
                 fruit.title,
                 fruit.description,
+                R.drawable.fruits_placeholder,
+            )
+        }
+    }
+}
+
+class FruitGridAdapterDelegate(
+    private val onClickAction: (position: Int) -> Unit,
+) :
+    AbsListItemAdapterDelegate<Product.Fruit, Product, FruitGridAdapterDelegate.FruitGridHolder>() {
+
+    override fun isForViewType(item: Product, items: MutableList<Product>, position: Int): Boolean {
+        return item is Product.Fruit
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup): FruitGridHolder {
+        return FruitGridHolder(
+            FruitGridBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            ), onClickAction
+        )
+    }
+
+    override fun onBindViewHolder(
+        item: Product.Fruit,
+        holder: FruitGridHolder,
+        payloads: MutableList<Any>
+    ) {
+        holder.bind(item)
+    }
+
+    class FruitGridHolder(
+        binding: FruitGridBinding,
+        onClickAction: (position: Int) -> Unit,
+    ) : ProductHolder(binding.root, onClickAction) {
+
+        init {
+            photo = binding.photo
+        }
+
+        fun bind(fruit: Product.Fruit) {
+            super.bindGrid(
+                fruit.photoLink,
                 R.drawable.fruits_placeholder,
             )
         }

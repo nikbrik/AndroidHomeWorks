@@ -15,12 +15,62 @@ import com.nikbrik.lists.databinding.FragmentListBinding
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator
 import kotlin.random.Random
 
+const val TYPE_LINEAR = 1
+const val TYPE_GRID = 2
+const val TYPE_STAGGERED_GRID = 3
+
 class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     private val binding: FragmentListBinding by viewBinding()
     private var productAdapter: ProductAdapter by autoCleared()
     private var isRestored = false
     private var layoutManagerType = TYPE_LINEAR
+
+    private fun createNewList(products: MutableList<Product>): List<Product> {
+        for (i in 1..5) {
+            products += Product.Fruit(
+                getString(R.string.apticot_link),
+                getString(R.string.apricot_title),
+                getString(R.string.apricot_description),
+            )
+            products += Product.Vegetable(
+                getString(R.string.corn_link),
+                getString(R.string.corn_title),
+                getString(R.string.corn_description),
+            )
+            products += Product.Fruit(
+                getString(R.string.avocado_link),
+                getString(R.string.avocado_title),
+                getString(R.string.avocado_description),
+            )
+            products += Product.Vegetable(
+                getString(R.string.squash_link),
+                getString(R.string.squash_title),
+                getString(R.string.squash_description),
+            )
+            products += Product.Fruit(
+                getString(R.string.lemon_link),
+                getString(R.string.lemon_title),
+                getString(R.string.lemon_description),
+            )
+            products += Product.Vegetable(
+                getString(R.string.potato_link),
+                getString(R.string.potato_title),
+                getString(R.string.potato_description),
+            )
+            products += Product.Fruit(
+                getString(R.string.peach_link),
+                getString(R.string.peach_title),
+                getString(R.string.peach_description),
+            )
+            products += Product.Vegetable(
+                getString(R.string.radish_link),
+                getString(R.string.radish_title),
+                getString(R.string.radish_description),
+            )
+        }
+        return products.toList()
+    }
 
     override fun onPositiveButtonClick(title: String, description: String) {
         productAdapter.addProduct(
@@ -70,19 +120,8 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         updateRecyclerViewPlaceholder()
     }
 
-    private fun createNewList(products: MutableList<Product>): List<Product> {
-        for (i in 1..40) {
-            products += Product.Vegetable(
-                "https://unsplash.com/photos/rNYCrcjUnOA/download?force=true&w=640",
-                "Test item",
-                "It it a random test element of the list",
-            )
-        }
-        return products.toList()
-    }
-
     private fun initList() {
-        productAdapter = ProductAdapter { position -> removeClickedItem(position) }
+        productAdapter = ProductAdapter(layoutManagerType) { position -> removeClickedItem(position) }
         binding.recyclerView.apply {
             adapter = productAdapter
             layoutManager = when (layoutManagerType) {
@@ -143,8 +182,5 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
         const val KEY_PRODUCTS = "KEY_PRODUCTS"
         const val TAG_NEW_ITEM_DIALOG = "TAG_NEW_ITEM_DIALOG"
         const val KEY_LAYOUT_MANAGER_TYPE = "KEY_LAYOUT_MANAGER_TYPE"
-        const val TYPE_LINEAR = 1
-        const val TYPE_GRID = 2
-        const val TYPE_STAGGERED_GRID = 3
     }
 }

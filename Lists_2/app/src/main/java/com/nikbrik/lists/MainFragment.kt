@@ -17,7 +17,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 .replace(
                     R.id.container,
                     ListFragment().withArguments {
-                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_LINEAR)
+                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, TYPE_LINEAR)
                     }
                 )
                 .addToBackStack(null)
@@ -28,7 +28,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 .replace(
                     R.id.container,
                     ListFragment().withArguments {
-                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_GRID)
+                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, TYPE_GRID)
                     }
                 )
                 .addToBackStack(null)
@@ -39,7 +39,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 .replace(
                     R.id.container,
                     ListFragment().withArguments {
-                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, ListFragment.TYPE_STAGGERED_GRID)
+                        putInt(ListFragment.KEY_LAYOUT_MANAGER_TYPE, TYPE_STAGGERED_GRID)
                     }
                 )
                 .addToBackStack(null)

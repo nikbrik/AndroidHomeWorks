@@ -9,8 +9,12 @@ import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.hannesdorfmann.adapterdelegates4.paging.PagedListDelegationAdapter
 import com.nikbrik.lists.Product
+import com.nikbrik.lists.TYPE_GRID
+import com.nikbrik.lists.TYPE_LINEAR
+import com.nikbrik.lists.TYPE_STAGGERED_GRID
 
 class ProductAdapter(
+    val layoutManagerType: Int,
     private val onClickAction: (position: Int) -> Unit,
 ) : AsyncListDifferDelegationAdapter<Product>(ProductDiffUtilCallback()) {
 
@@ -20,8 +24,16 @@ class ProductAdapter(
         get() = differ.currentList
 
     init {
-        delegatesManager.addDelegate(VegetableAdapterDelegate(onClickAction))
-        delegatesManager.addDelegate(FruitAdapterDelegate(onClickAction))
+        when (layoutManagerType) {
+            TYPE_GRID, TYPE_STAGGERED_GRID -> {
+                delegatesManager.addDelegate(VegetableGridAdapterDelegate(onClickAction))
+                delegatesManager.addDelegate(FruitGridAdapterDelegate(onClickAction))
+            }
+            else -> {
+                delegatesManager.addDelegate(VegetableAdapterDelegate(onClickAction))
+                delegatesManager.addDelegate(FruitAdapterDelegate(onClickAction))
+            }
+        }
     }
 
     fun updateProducts(products: List<Product>) {

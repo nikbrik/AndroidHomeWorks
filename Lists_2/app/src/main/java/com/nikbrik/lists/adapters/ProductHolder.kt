@@ -36,4 +36,15 @@ abstract class ProductHolder(
             .error(R.drawable.no_image_available)
             .into(this.photo)
     }
+
+    fun bindGrid(
+        photoLink: String,
+        @DrawableRes placeHolderId: Int,
+    ) {
+        Glide.with(itemView)
+            .load(if (photoLink.isBlank()) placeHolderId else photoLink)
+            .placeholder(placeHolderId)
+            .error(R.drawable.no_image_available)
+            .into(this.photo)
+    }
 }
