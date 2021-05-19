@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PermissionsAndDate</string>
+    <string name="location_permission_placeholder_title">You must grant the location permission</string>
+    <string name="recycler_view_placeholder_text">You must grant the location permission</string>
 </resources>
