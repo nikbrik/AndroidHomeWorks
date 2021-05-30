@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">PermissionsAndDate</string>
-    <string name="location_permission_placeholder_title">You must grant the location permission</string>
-    <string name="recycler_view_placeholder_text">You must grant the location permission</string>
+    <string name="need_permissions">Для отображения списка локаций необходимо разрешение</string>
+    <string name="request_permission_button">Разрешить</string>
+    <string name="location_button">Получить локацию</string>
+    <string name="location_empty">Нет локаций для отображения</string>
 </resources>
