@@ -33,7 +33,6 @@ class PermissionRequestFragment : Fragment(R.layout.fragment_permission_request)
             parentFragmentManager.beginTransaction()
                 .replace(R.id.container, LocationListFragment())
                 .commit()
-
         } else {
             toast(getString(R.string.need_permissions))
         }
@@ -70,6 +69,4 @@ class PermissionRequestFragment : Fragment(R.layout.fragment_permission_request)
             )
         )
     }
-
-
 }

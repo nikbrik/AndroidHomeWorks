@@ -2,9 +2,7 @@ package com.nikbrik.permissionsanddate
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.jakewharton.threetenabp.AndroidThreeTen
 import com.nikbrik.permissionsanddate.recyclerview.LocationData
-import timber.log.Timber
 
 class MainActivity : AppCompatActivity(), LocationDataRepository {
 

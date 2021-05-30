@@ -2,7 +2,6 @@ package com.nikbrik.permissionsanddate
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.nikbrik.permissionsanddate.databinding.LocationBinding
 import com.nikbrik.permissionsanddate.recyclerview.LocationData

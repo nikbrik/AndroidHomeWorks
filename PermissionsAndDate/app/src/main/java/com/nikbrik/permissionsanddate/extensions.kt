@@ -1,7 +1,6 @@
 package com.nikbrik.permissionsanddate
 
 import android.app.Activity
-import android.content.Context
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 

@@ -45,14 +45,13 @@ class LocationListFragment : Fragment(R.layout.fragment_location_list) {
         //    .getErrorDialog(this, result, ConnectionResult.SUCCESS)
         //    ?.show()
 
-        //check google api async
+        // check google api async
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
         GoogleApiAvailability.getInstance()
             .checkApiAvailability(fusedLocationClient)
             .addOnFailureListener {
                 toast("Google Play Services unavailable.")
             }
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,9 +65,9 @@ class LocationListFragment : Fragment(R.layout.fragment_location_list) {
                 requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
+                    requireContext(),
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
         ) {
             parentFragmentManager.apply {
                 findFragmentById(R.id.container) ?: beginTransaction()

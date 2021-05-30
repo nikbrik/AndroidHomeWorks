@@ -1,12 +1,8 @@
 package com.nikbrik.permissionsanddate.recyclerview
 
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
-import android.widget.TextView
-import coil.load
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.nikbrik.permissionsanddate.databinding.LocationBinding
-import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneId
 import org.threeten.bp.format.DateTimeFormatter
 
@@ -30,5 +26,4 @@ class LocationHolder(
             .withZone(ZoneId.systemDefault())
         binding.time.text = formatter.format(locationData.timestamp)
     }
-
 }

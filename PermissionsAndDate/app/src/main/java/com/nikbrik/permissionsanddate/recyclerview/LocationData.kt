@@ -37,8 +37,7 @@ sealed class LocationData(
             latitude = $latitude
             speed = $speed
             accuracy = $accuracy
-        """.trimIndent()
+            """.trimIndent()
         }
     }
 }
-

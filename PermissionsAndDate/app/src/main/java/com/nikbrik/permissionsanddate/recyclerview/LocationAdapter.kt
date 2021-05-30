@@ -1,6 +1,5 @@
 package com.nikbrik.permissionsanddate.recyclerview
 
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.nikbrik.permissionsanddate.BaseLocationAdapterDelegate
@@ -25,6 +24,5 @@ class LocationAdapter(
         override fun areContentsTheSame(oldItem: LocationData, newItem: LocationData): Boolean {
             return oldItem == newItem
         }
-
     }
 }
