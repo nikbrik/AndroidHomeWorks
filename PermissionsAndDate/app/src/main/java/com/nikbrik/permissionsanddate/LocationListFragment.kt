@@ -1,22 +1,30 @@
 package com.nikbrik.permissionsanddate
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.pm.PackageManager
+import android.location.Location
 import android.os.Bundle
+import android.os.Looper
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.nikbrik.permissionsanddate.databinding.FragmentLocationListBinding
 import com.nikbrik.permissionsanddate.recyclerview.LocationAdapter
 import com.nikbrik.permissionsanddate.recyclerview.LocationData
+import org.threeten.bp.Duration
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneId
 import kotlin.random.Random
@@ -31,69 +39,95 @@ class LocationListFragment : Fragment(R.layout.fragment_location_list) {
         set(value) {
             (requireActivity() as LocationDataRepository).isRestored = value
         }
+
+    // location
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var locationRequest: LocationRequest
+    private var requestingLocationUpdates = true
+    private lateinit var locationCallback: LocationCallback
+
+    // datetime
     private var dateDialog: DatePickerDialog? = null
     private var timeDialog: TimePickerDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // check google api sync
-        // val result = GoogleApiAvailability.getInstance()
-        //    .isGooglePlayServicesAvailable(this)
-        // GoogleApiAvailability.getInstance()
-        //    .getErrorDialog(this, result, ConnectionResult.SUCCESS)
-        //    ?.show()
-
-        // check google api async
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireActivity())
-        GoogleApiAvailability.getInstance()
-            .checkApiAvailability(fusedLocationClient)
-            .addOnFailureListener {
-                toast("Google Play Services unavailable.")
+
+        locationCallback = object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult?) {
+                locationResult ?: return
+                addNewLocation(locationResult.lastLocation)
             }
+        }
+
+        locationRequest = LocationRequest.create().apply {
+            interval = Duration.ofSeconds(10).toMillis()
+            fastestInterval = Duration.ofSeconds(5).toMillis()
+            maxWaitTime = Duration.ofMinutes(2).toMillis()
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        }
     }
 
+    private fun doIfGoogleApiAvailable(action: () -> Unit) {
+        GoogleApiAvailability.getInstance()
+            .checkApiAvailability(fusedLocationClient)
+            .addOnSuccessListener { run(action) }
+    }
+
+    @SuppressLint("MissingPermission")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initList()
         updateRecyclerViewPlaceholder()
 
-        // Проверка разрешений
-        if (ActivityCompat.checkSelfPermission(
-                requireContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                    requireContext(),
-                    Manifest.permission.ACCESS_COARSE_LOCATION
-                ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            parentFragmentManager.apply {
-                findFragmentById(R.id.container) ?: beginTransaction()
-                    .add(R.id.container, PermissionRequestFragment())
-                    .commit()
+        binding.locationRequestButton.setOnClickListener {
+            doIfGoogleApiAvailable {
+                checkPermissions()
+                fusedLocationClient.lastLocation
+                    .addOnSuccessListener { location -> addNewLocation(location) }
             }
         }
 
-        binding.locationRequestButton.setOnClickListener {
-            fusedLocationClient.lastLocation
-                .addOnSuccessListener { location ->
-                    location?.run {
-                        addNewLocation(
-                            LocationData.BaseLocationData(
-                                altitude,
-                                longitude,
-                                latitude,
-                                speed,
-                                accuracy,
-                            ).apply {
-                                imageLink = randomImageURL()
-                            }
-                        )
+        val result = GoogleApiAvailability.getInstance()
+            .isGooglePlayServicesAvailable(requireContext())
+        GoogleApiAvailability.getInstance()
+            .getErrorDialog(this, result, 1)
+            ?.apply {
+                when (result) {
+                    ConnectionResult.SUCCESS -> {
+                        setCancelable(true)
+                        binding.locationRequestButton.isEnabled = true
+                        binding.locationList.isEnabled = true
                     }
-                    updateRecyclerViewPlaceholder()
+                    ConnectionResult.SERVICE_VERSION_UPDATE_REQUIRED -> {
+                        setCancelable(true)
+                        binding.locationRequestButton.isEnabled = false
+                        binding.locationList.isEnabled = false
+                    }
+                    else -> {
+                        setCancelable(false)
+                        binding.locationRequestButton.isEnabled = false
+                        binding.locationList.isEnabled = false
+                    }
                 }
+            }
+            ?.show()
+    }
+
+    private fun checkPermissions() {
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            parentFragmentManager.apply {
+                beginTransaction()
+                    .replace(R.id.container, PermissionRequestFragment())
+                    .commit()
+            }
         }
     }
 
@@ -104,11 +138,51 @@ class LocationListFragment : Fragment(R.layout.fragment_location_list) {
             locationAdapter.updateLocations(locationData)
             updateRecyclerViewPlaceholder()
         }
+        doIfGoogleApiAvailable {
+            checkPermissions()
+            if (requestingLocationUpdates) startLocationUpdates()
+        }
     }
 
-    private fun addNewLocation(location: LocationData.BaseLocationData) {
-        locationData.add(location)
+    override fun onPause() {
+        super.onPause()
+        checkPermissions()
+        stopLocationUpdates()
+    }
+
+    private fun stopLocationUpdates() {
+        requestingLocationUpdates = true
+        fusedLocationClient.removeLocationUpdates(locationCallback)
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun startLocationUpdates() {
+        requestingLocationUpdates = false
+
+        fusedLocationClient.requestLocationUpdates(
+            locationRequest,
+            locationCallback,
+            Looper.getMainLooper()
+        )
+    }
+
+    private fun addNewLocation(location: Location?) {
+
+        location?.run {
+            locationData.add(
+                LocationData.BaseLocationData(
+                    altitude,
+                    longitude,
+                    latitude,
+                    speed,
+                    accuracy,
+                ).apply {
+                    imageLink = randomImageURL()
+                }
+            )
+        }
         locationAdapter.updateLocations(locationData)
+        updateRecyclerViewPlaceholder()
     }
 
     private fun randomImageURL(): String {
@@ -188,5 +262,25 @@ class LocationListFragment : Fragment(R.layout.fragment_location_list) {
         super.onDestroy()
         timeDialog?.dismiss()
         dateDialog?.dismiss()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean(REQUESTING_LOCATION_UPDATES_KEY, requestingLocationUpdates)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+
+        // Update the value of requestingLocationUpdates from the Bundle.
+        if (savedInstanceState?.keySet()?.contains(REQUESTING_LOCATION_UPDATES_KEY) == true) {
+            requestingLocationUpdates = savedInstanceState.getBoolean(
+                REQUESTING_LOCATION_UPDATES_KEY
+            )
+        }
+    }
+
+    companion object {
+        const val REQUESTING_LOCATION_UPDATES_KEY = "REQUESTING_LOCATION_UPDATES_KEY"
     }
 }

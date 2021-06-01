@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -34,15 +35,32 @@ class PermissionRequestFragment : Fragment(R.layout.fragment_permission_request)
                 .replace(R.id.container, LocationListFragment())
                 .commit()
         } else {
-            toast(getString(R.string.need_permissions))
+            needLocationPermissionToast()
         }
     }
+
+    private fun needLocationPermissionToast() = toast(getString(R.string.need_permissions))
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.permissionRequestButton.setOnClickListener {
-            requestLocationPermission()
+            if (ActivityCompat.shouldShowRequestPermissionRationale(
+                    requireActivity(),
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            )
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.need_permissions))
+                    .setPositiveButton("OK") { _, _ ->
+                        requestLocationPermission()
+                    }
+                    .setNegativeButton("Cancel") { _, _ ->
+                        needLocationPermissionToast()
+                    }
+                    .show()
+            else
+                requestLocationPermission()
         }
     }
 
