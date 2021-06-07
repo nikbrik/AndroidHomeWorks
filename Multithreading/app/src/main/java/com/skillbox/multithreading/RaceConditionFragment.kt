@@ -2,6 +2,4 @@ package com.skillbox.multithreading
 
 import androidx.fragment.app.Fragment
 
-class RaceConditionFragment : Fragment() {
-
-}
+class RaceConditionFragment : Fragment()
