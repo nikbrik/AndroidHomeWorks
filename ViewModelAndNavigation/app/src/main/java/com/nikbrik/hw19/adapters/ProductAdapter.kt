@@ -13,7 +13,7 @@ class ProductAdapter(
 
     val isEmpty: Boolean
         get() = differ.currentList.isEmpty()
-    val currentList
+    val currentList: MutableList<Product>
         get() = differ.currentList
 
     init {
@@ -29,29 +29,29 @@ class ProductAdapter(
         }
     }
 
-    fun updateProducts(products: List<Product>) {
-        differ.submitList(products)
-    }
-
-    fun addProduct(product: Product, position: Int) {
-        differ.currentList.apply {
-            val newList = take(position) +
-                listOf(product) +
-                takeLast(size - position)
-            updateProducts(newList)
-        }
-    }
-
-    fun removeProduct(position: Int) {
-        if (differ.currentList.isNotEmpty() && position >= 0) {
-            differ.currentList.apply {
-                updateProducts(
-                    take(position) +
-                        takeLast(size - position - 1)
-                )
-            }
-        }
-    }
+//    fun updateProducts(products: List<Product>) {
+//        differ.submitList(products)
+//    }
+//
+//    fun addProduct(product: Product, position: Int) {
+//        differ.currentList.apply {
+//            val newList = take(position) +
+//                listOf(product) +
+//                takeLast(size - position)
+//            updateProducts(newList)
+//        }
+//    }
+//
+//    fun removeProduct(position: Int) {
+//        if (differ.currentList.isNotEmpty() && position >= 0) {
+//            differ.currentList.apply {
+//                updateProducts(
+//                    take(position) +
+//                        takeLast(size - position - 1)
+//                )
+//            }
+//        }
+//    }
 
     class ProductDiffUtilCallback : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {

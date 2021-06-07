@@ -10,11 +10,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (BuildConfig.DEBUG && Timber.treeCount() == 0) Timber.plant(Timber.DebugTree())
-
-        supportFragmentManager.run {
-            findFragmentById(R.id.container) ?: beginTransaction()
-                .add(R.id.container, MainFragment())
-                .commit()
-        }
     }
 }

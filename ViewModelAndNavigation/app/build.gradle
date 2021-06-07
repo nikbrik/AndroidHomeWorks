@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id "org.jmailen.kotlinter" version "3.3.0"
     id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -40,9 +41,9 @@ android {
 dependencies {
 
     def lifecycle_version = "2.3.1"
+    def nav_version = '2.3.5'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.5.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -58,6 +59,9 @@ dependencies {
     // debugImplementation because LeakCanary should only run in debug builds.
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 
+    implementation 'androidx.core:core-ktx:1.5.0'
+    implementation 'androidx.fragment:fragment-ktx:1.3.4'
+
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     // LiveData
@@ -71,4 +75,8 @@ dependencies {
 
     implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.0'
     implementation 'com.hannesdorfmann:adapterdelegates4-pagination:4.3.0'
+
+    // Kotlin
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 }
