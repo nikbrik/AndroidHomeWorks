@@ -11,12 +11,17 @@ import com.nikbrik.hw19.R
 abstract class ProductHolder(
     view: View,
     onClickAction: (position: Int) -> Unit,
+    OnLongClickAction: (position: Int) -> Unit
 ) : RecyclerView.ViewHolder(view) {
     lateinit var photo: ImageView
     lateinit var title: TextView
     lateinit var description: TextView
 
     init {
+        view.setOnLongClickListener {
+            OnLongClickAction(bindingAdapterPosition)
+            true
+        }
         view.setOnClickListener {
             onClickAction(bindingAdapterPosition)
         }

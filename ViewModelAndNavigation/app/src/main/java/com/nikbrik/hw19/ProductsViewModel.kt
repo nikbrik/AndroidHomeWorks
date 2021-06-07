@@ -16,7 +16,7 @@ class ProductsViewModel(application: Application) : AndroidViewModel(application
     val products: LiveData<List<Product>>
         get() = productLiveData
 
-    private val showToastLiveData = MutableLiveData<Int>()
+    private val showToastLiveData = SingleLiveEvent<Int>()
     val showToast: LiveData<Int>
         get() = showToastLiveData
 

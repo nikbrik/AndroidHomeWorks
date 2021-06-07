@@ -5,7 +5,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,19 +22,14 @@ const val TYPE_LINEAR = 1
 const val TYPE_GRID = 2
 const val TYPE_STAGGERED_GRID = 3
 
-class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
+class ListFragment : Fragment(R.layout.fragment_list) {
 
     private val binding: FragmentListBinding by viewBinding()
     private var productAdapter: ProductAdapter by autoCleared()
-    private var isRestored = false
     private var layoutManagerType = TYPE_LINEAR
-    private val productsViewModel: ProductsViewModel by viewModels()
-
-    override fun onPositiveButtonClick(title: String, description: String) {
-        productsViewModel.addProduct(title, description)
-        binding.recyclerView.smoothScrollToPosition(0)
-        updateRecyclerViewPlaceholder()
-    }
+    private val productsViewModel: ProductsViewModel by activityViewModels()
+    private val args: ListFragmentArgs by navArgs()
+    private var needToScrollUp = false
 
     private fun removeClickedItem(position: Int) {
         productsViewModel.removeProduct(position)
@@ -48,14 +45,17 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        arguments?.getInt(KEY_LAYOUT_MANAGER_TYPE)?.let { layoutManagerType = it }
+        layoutManagerType = args.type
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.addElement.setOnClickListener {
-            NewItemDialogFragment().show(childFragmentManager, TAG_NEW_ITEM_DIALOG)
+            needToScrollUp = true
+            findNavController().navigate(
+                ListFragmentDirections.actionListFragmentToNewItemDialogFragment()
+            )
         }
         initList()
         observeViewModelState()
@@ -64,6 +64,12 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
     private fun observeViewModelState() {
         productsViewModel.products.observe(viewLifecycleOwner) { newList ->
             productAdapter.items = newList
+            if (needToScrollUp) {
+                needToScrollUp = false
+                binding.recyclerView.smoothScrollToPosition(0)
+            }
+
+            updateRecyclerViewPlaceholder()
         }
         productsViewModel.showToast.observe(viewLifecycleOwner) { position ->
             Toast.makeText(
@@ -76,7 +82,17 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
 
     private fun initList() {
         productAdapter =
-            ProductAdapter(layoutManagerType) { position -> removeClickedItem(position) }
+            ProductAdapter(
+                layoutManagerType,
+                { position ->
+                    findNavController().navigate(
+                        ListFragmentDirections.actionListFragmentToDetailFragment(position)
+                    )
+                },
+                { position ->
+                    removeClickedItem(position)
+                },
+            )
         binding.recyclerView.apply {
             adapter = productAdapter
             layoutManager = when (layoutManagerType) {
@@ -108,10 +124,5 @@ class ListFragment : Fragment(R.layout.fragment_list), NewItemDialogListener {
                 )
             }
         }
-    }
-
-    companion object {
-        const val TAG_NEW_ITEM_DIALOG = "TAG_NEW_ITEM_DIALOG"
-        const val KEY_LAYOUT_MANAGER_TYPE = "KEY_LAYOUT_MANAGER_TYPE"
     }
 }

@@ -10,6 +10,8 @@ import com.nikbrik.hw19.databinding.FruitGridBinding
 
 class FruitAdapterDelegate(
     private val onClickAction: (position: Int) -> Unit,
+    private val onLongClickAction: (position: Int) -> Unit
+
 ) :
     AbsListItemAdapterDelegate<Product.Fruit, Product, FruitAdapterDelegate.FruitHolder>() {
 
@@ -24,7 +26,8 @@ class FruitAdapterDelegate(
                 parent,
                 false
             ),
-            onClickAction
+            onClickAction,
+            onLongClickAction
         )
     }
 
@@ -39,7 +42,8 @@ class FruitAdapterDelegate(
     class FruitHolder(
         binding: FruitBinding,
         onClickAction: (position: Int) -> Unit,
-    ) : ProductHolder(binding.root, onClickAction) {
+        OnLongClickAction: (position: Int) -> Unit
+    ) : ProductHolder(binding.root, onClickAction, OnLongClickAction) {
 
         init {
             photo = binding.photo
@@ -60,6 +64,7 @@ class FruitAdapterDelegate(
 
 class FruitGridAdapterDelegate(
     private val onClickAction: (position: Int) -> Unit,
+    private val onLongClickAction: (position: Int) -> Unit
 ) :
     AbsListItemAdapterDelegate<Product.Fruit, Product, FruitGridAdapterDelegate.FruitGridHolder>() {
 
@@ -74,7 +79,8 @@ class FruitGridAdapterDelegate(
                 parent,
                 false
             ),
-            onClickAction
+            onClickAction,
+            onLongClickAction,
         )
     }
 
@@ -89,7 +95,8 @@ class FruitGridAdapterDelegate(
     class FruitGridHolder(
         binding: FruitGridBinding,
         onClickAction: (position: Int) -> Unit,
-    ) : ProductHolder(binding.root, onClickAction) {
+        onLongClickAction: (position: Int) -> Unit
+    ) : ProductHolder(binding.root, onClickAction, onLongClickAction) {
 
         init {
             photo = binding.photo

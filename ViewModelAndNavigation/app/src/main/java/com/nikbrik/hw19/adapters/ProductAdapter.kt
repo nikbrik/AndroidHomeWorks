@@ -9,6 +9,7 @@ import com.nikbrik.hw19.TYPE_STAGGERED_GRID
 class ProductAdapter(
     val layoutManagerType: Int,
     private val onClickAction: (position: Int) -> Unit,
+    private val onLongClickAction: (position: Int) -> Unit,
 ) : AsyncListDifferDelegationAdapter<Product>(ProductDiffUtilCallback()) {
 
     val isEmpty: Boolean
@@ -19,39 +20,30 @@ class ProductAdapter(
     init {
         when (layoutManagerType) {
             TYPE_GRID, TYPE_STAGGERED_GRID -> {
-                delegatesManager.addDelegate(VegetableGridAdapterDelegate(onClickAction))
-                delegatesManager.addDelegate(FruitGridAdapterDelegate(onClickAction))
+                delegatesManager.addDelegate(
+                    VegetableGridAdapterDelegate(
+                        onClickAction,
+                        onLongClickAction
+                    )
+                )
+                delegatesManager.addDelegate(
+                    FruitGridAdapterDelegate(
+                        onClickAction,
+                        onLongClickAction
+                    )
+                )
             }
             else -> {
-                delegatesManager.addDelegate(VegetableAdapterDelegate(onClickAction))
-                delegatesManager.addDelegate(FruitAdapterDelegate(onClickAction))
+                delegatesManager.addDelegate(
+                    VegetableAdapterDelegate(
+                        onClickAction,
+                        onLongClickAction
+                    )
+                )
+                delegatesManager.addDelegate(FruitAdapterDelegate(onClickAction, onLongClickAction))
             }
         }
     }
-
-//    fun updateProducts(products: List<Product>) {
-//        differ.submitList(products)
-//    }
-//
-//    fun addProduct(product: Product, position: Int) {
-//        differ.currentList.apply {
-//            val newList = take(position) +
-//                listOf(product) +
-//                takeLast(size - position)
-//            updateProducts(newList)
-//        }
-//    }
-//
-//    fun removeProduct(position: Int) {
-//        if (differ.currentList.isNotEmpty() && position >= 0) {
-//            differ.currentList.apply {
-//                updateProducts(
-//                    take(position) +
-//                        takeLast(size - position - 1)
-//                )
-//            }
-//        }
-//    }
 
     class ProductDiffUtilCallback : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
