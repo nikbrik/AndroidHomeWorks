@@ -34,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
+
 }
 
 dependencies {
@@ -60,5 +64,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation('com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2')
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.4.6'
 
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+    implementation "androidx.recyclerview:recyclerview:1.2.0"
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.0'
+    implementation 'com.hannesdorfmann:adapterdelegates4-pagination:4.3.0'
 }

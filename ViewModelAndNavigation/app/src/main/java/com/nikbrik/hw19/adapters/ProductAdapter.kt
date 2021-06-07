@@ -14,8 +14,6 @@ class ProductAdapter(
 
     val isEmpty: Boolean
         get() = differ.currentList.isEmpty()
-    val currentList: MutableList<Product>
-        get() = differ.currentList
 
     init {
         when (layoutManagerType) {

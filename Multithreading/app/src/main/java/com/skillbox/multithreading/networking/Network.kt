@@ -9,7 +9,7 @@ import java.io.IOException
 
 object Network {
 
-    const val MOVIE_API_KEY = "YOUR API KEY"
+    const val MOVIE_API_KEY = "edb54490"
 
     private val client = OkHttpClient.Builder()
         .addInterceptor(
