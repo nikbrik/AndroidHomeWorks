@@ -3,7 +3,6 @@ package com.skillbox.multithreading.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.skillbox.multithreading.databinding.MovieBinding
 import com.skillbox.multithreading.networking.Movie
@@ -42,9 +41,9 @@ class MovieAdapterDelegate(private val onClickAction: (position: Int) -> Unit) :
         ) {
             binding.textView.text = movie.title
 
-            Glide.with(itemView)
-                .load(movie.image)
-                .into(binding.imageView)
+//            Glide.with(itemView)
+//                .load(movie.image)
+//                .into(binding.imageView)
         }
     }
 }
