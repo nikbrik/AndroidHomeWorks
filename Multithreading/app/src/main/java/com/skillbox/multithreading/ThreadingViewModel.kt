@@ -17,4 +17,9 @@ class ThreadingViewModel : ViewModel() {
             moviesLiveData.postValue(it)
         }
     }
+
+    fun loadMovies(callback: (List<Movie>) -> Unit) {
+//        moviesRepository.fetchMovies(callback)
+        moviesRepository.fetchMoviesByThreadingPool(callback)
+    }
 }

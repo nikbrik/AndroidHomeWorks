@@ -5,6 +5,13 @@ import com.skillbox.multithreading.networking.Network
 
 class MoviesRepository {
 
+    private val movieList = mutableListOf<Movie>()
+
+    @Synchronized
+    fun addMovie(movie: Movie) {
+        movieList.add(movie)
+    }
+
     private fun getPredefinedMoviesID(): List<String> {
         return listOf(
             "tt0111161",
@@ -34,6 +41,24 @@ class MoviesRepository {
             }
             threads.forEach { thread ->
                 thread.join()
+            }
+            onMoviesFetched(movieList)
+        }.start()
+    }
+
+    fun fetchMoviesByThreadingPool(
+        onMoviesFetched: (movies: List<Movie>) -> Unit,
+    ) {
+        val idList = getPredefinedMoviesID()
+        Thread {
+            val futures = idList.map { id ->
+                MultithreadingApplication.executorService.submit {
+                    Network.getMovieById(id)?.let { movie ->
+                        addMovie(movie)
+                    }
+                }
+            }
+            while (!futures.all { it.isDone }) {
             }
             onMoviesFetched(movieList)
         }.start()

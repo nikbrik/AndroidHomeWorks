@@ -4,4 +4,5 @@
     <string name="race_condition">Race condition</string>
     <string name="deadlock">Deadlock</string>
     <string name="livelock">Livelock</string>
+    <string name="listRefreshed">Список обновлен</string>
 </resources>

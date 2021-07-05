@@ -6,7 +6,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import java.io.IOException
-import java.util.UUID
 
 object Network {
 
@@ -33,7 +32,7 @@ object Network {
             // Проблемы с интернет соединением
             null
         }?.also {
-            it.uuid = UUID.randomUUID()
+            it.id = movieId
         }
     }
 

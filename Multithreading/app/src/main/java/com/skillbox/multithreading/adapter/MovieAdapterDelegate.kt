@@ -39,11 +39,8 @@ class MovieAdapterDelegate(private val onClickAction: (position: Int) -> Unit) :
         fun bind(
             movie: Movie,
         ) {
-            binding.textView.text = movie.title
-
-//            Glide.with(itemView)
-//                .load(movie.image)
-//                .into(binding.imageView)
+            binding.title.text = movie.title
+            binding.year.text = "Year ${movie.year}"
         }
     }
 }
