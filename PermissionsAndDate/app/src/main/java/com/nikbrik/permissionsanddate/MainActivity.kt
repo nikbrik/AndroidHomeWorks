@@ -1,4 +1,5 @@
 package com.nikbrik.permissionsanddate
+package com.nikbrik.permissionsanddate
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

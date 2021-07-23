@@ -5,4 +5,12 @@
     <string name="deadlock">Deadlock</string>
     <string name="livelock">Livelock</string>
     <string name="listRefreshed">Список обновлен</string>
+    <string name="threads_count">Количество потоков</string>
+    <string name="added_number">Добавляемое число</string>
+    <string name="button_inc">Инкрементировать без синхронизации</string>
+    <string name="button_sync">Инкрементировать с синхронизацией</string>
+    <string name="livelock_on">Вызвать livelock</string>
+    <string name="livelock_off">Решение проблемы livelock</string>
+    <string name="deadlock_on">Вызвать deadlock</string>
+    <string name="deadlock_off">Без deadlock</string>
 </resources>
