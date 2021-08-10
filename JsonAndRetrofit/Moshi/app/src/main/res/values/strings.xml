@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Networking</string>
+    <string name="poster">Poster</string>
+    <string name="search">Search</string>
+    <string name="repeat">Повторить</string>
+    <string name="error">Ошибка</string>
+    <string-array name="items">
+        <item>Фильм</item>
+        <item>Сериал</item>
+        <item>Эпизод</item>
+        <item>не выбрано</item>
+    </string-array>
+</resources>
