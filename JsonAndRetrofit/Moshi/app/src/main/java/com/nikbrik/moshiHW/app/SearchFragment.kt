@@ -14,11 +14,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.nikbrik.moshiHW.R
 import com.nikbrik.moshiHW.databinding.FragmentSearchBinding
-import com.nikbrik.moshiHW.mvvm.NetworkingViewModel
+import com.nikbrik.moshiHW.mvvm.MoshiHwViewModel
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private var binding: FragmentSearchBinding? = null
-    private val viewModel: NetworkingViewModel by activityViewModels()
+    private val viewModel: MoshiHwViewModel by activityViewModels()
     private val args: SearchFragmentArgs by navArgs()
 
     override fun onCreateView(

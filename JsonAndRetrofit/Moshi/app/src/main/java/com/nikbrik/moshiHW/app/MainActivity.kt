@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.nikbrik.moshiHW.R
-import com.nikbrik.moshiHW.mvvm.NetworkingViewModel
+import com.nikbrik.moshiHW.mvvm.MoshiHwViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel by viewModels<NetworkingViewModel>()
+    private val viewModel by viewModels<MoshiHwViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

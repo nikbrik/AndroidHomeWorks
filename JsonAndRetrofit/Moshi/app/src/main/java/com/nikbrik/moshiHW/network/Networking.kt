@@ -36,4 +36,17 @@ object Networking {
 
         return client.newCall(request)
     }
+
+    fun getMovieCallById(imdbID: String): Call {
+        val url = HttpUrl.Builder()
+            .scheme("http")
+            .host("www.omdbapi.com")
+            .addQueryParameter("i", imdbID)
+            .build()
+        val request = Request.Builder()
+            .get()
+            .url(url)
+            .build()
+        return client.newCall(request)
+    }
 }

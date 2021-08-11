@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nikbrik.moshiHW.R
 import com.nikbrik.moshiHW.databinding.FragmentListBinding
 import com.nikbrik.moshiHW.extensions.autoCleared
-import com.nikbrik.moshiHW.mvvm.NetworkingViewModel
+import com.nikbrik.moshiHW.mvvm.MoshiHwViewModel
 
 class ListFragment : Fragment(R.layout.fragment_list) {
     private var binding: FragmentListBinding? = null
-    private val viewModel: NetworkingViewModel by activityViewModels()
+    private val viewModel: MoshiHwViewModel by activityViewModels()
     private var movieAdapter: MovieAdapter by autoCleared()
     private val args: ListFragmentArgs by navArgs()
 

@@ -10,7 +10,7 @@ import com.nikbrik.moshiHW.BuildConfig.DEBUG
 import com.nikbrik.moshiHW.network.Networking
 import timber.log.Timber
 
-class NetworkingApplication : Application() {
+class MoshiHwApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         // loging
@@ -24,7 +24,7 @@ class NetworkingApplication : Application() {
                 .apply {
                     addPlugin(
                         InspectorFlipperPlugin(
-                            this@NetworkingApplication,
+                            this@MoshiHwApplication,
                             DescriptorMapping.withDefaults()
                         )
                     )

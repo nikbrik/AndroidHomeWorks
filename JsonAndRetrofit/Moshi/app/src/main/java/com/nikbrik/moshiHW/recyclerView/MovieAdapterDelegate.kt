@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.nikbrik.moshiHW.databinding.FragmentMovieBinding
 
-class MovieAdapterDelegate : AbsListItemAdapterDelegate<Movie, Movie, MovieHolder>() {
-    override fun isForViewType(item: Movie, items: MutableList<Movie>, position: Int): Boolean {
+class MovieAdapterDelegate : AbsListItemAdapterDelegate<ExtendedMovie, ExtendedMovie, MovieHolder>() {
+    override fun isForViewType(item: ExtendedMovie, items: MutableList<ExtendedMovie>, position: Int): Boolean {
         return true
     }
 
@@ -20,7 +20,7 @@ class MovieAdapterDelegate : AbsListItemAdapterDelegate<Movie, Movie, MovieHolde
         )
     }
 
-    override fun onBindViewHolder(item: Movie, holder: MovieHolder, payloads: MutableList<Any>) {
+    override fun onBindViewHolder(item: ExtendedMovie, holder: MovieHolder, payloads: MutableList<Any>) {
         holder.bind(item)
     }
 }

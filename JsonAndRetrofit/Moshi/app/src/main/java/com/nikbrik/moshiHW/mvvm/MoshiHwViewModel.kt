@@ -3,20 +3,20 @@ package com.nikbrik.moshiHW.mvvm
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.nikbrik.moshiHW.recyclerView.Movie
+import com.nikbrik.moshiHW.recyclerView.ExtendedMovie
 
-class NetworkingViewModel : ViewModel() {
+class MoshiHwViewModel : ViewModel() {
 
     var searchName = ""
     var searchYear = ""
     var searchType = ""
     var searchTypeArray = emptyArray<String>()
 
-    private val repository = NetworkingRepository()
-    private val liveData = MutableLiveData<List<Movie>>(
+    private val repository = MoshiHwRepository()
+    private val liveData = MutableLiveData<List<ExtendedMovie>>(
         emptyList()
     )
-    val movies: LiveData<List<Movie>>
+    val movies: LiveData<List<ExtendedMovie>>
         get() = liveData
 
     fun onSearchButtonClickEvent(

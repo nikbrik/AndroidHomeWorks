@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Networking</string>
+    <string name="app_name">MoshiHW</string>
     <string name="poster">Poster</string>
     <string name="search">Search</string>
     <string name="repeat">Повторить</string>
     <string name="error">Ошибка</string>
+    <string name="NA">N/A</string>
     <string-array name="items">
         <item>Фильм</item>
         <item>Сериал</item>
