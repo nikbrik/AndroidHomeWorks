@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/search_fragment"
-        android:name="com.nikbrik.moshiHW.app.SearchFragment"
+        android:name="com.nikbrik.moshiHW.ui.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search">
         <action
@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/list_fragment"
-        android:name="com.nikbrik.moshiHW.recyclerView.ListFragment"
+        android:name="com.nikbrik.moshiHW.ui.ListFragment"
         android:label="ListFragment"
         tools:layout="@layout/fragment_list">
         <action

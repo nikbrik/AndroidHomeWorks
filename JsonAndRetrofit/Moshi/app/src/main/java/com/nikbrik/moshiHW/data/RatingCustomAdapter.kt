@@ -1,4 +1,4 @@
-package com.nikbrik.moshiHW
+package com.nikbrik.moshiHW.data
 
 import android.os.Parcelable
 import com.nikbrik.moshiHW.recyclerView.ExtendedMovie

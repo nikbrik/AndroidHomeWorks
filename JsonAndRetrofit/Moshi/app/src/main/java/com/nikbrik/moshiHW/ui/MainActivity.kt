@@ -1,10 +1,9 @@
-package com.nikbrik.moshiHW.app
+package com.nikbrik.moshiHW.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.nikbrik.moshiHW.R
-import com.nikbrik.moshiHW.mvvm.MoshiHwViewModel
 
 class MainActivity : AppCompatActivity() {
 

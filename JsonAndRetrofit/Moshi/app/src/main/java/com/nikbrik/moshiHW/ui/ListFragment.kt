@@ -1,4 +1,4 @@
-package com.nikbrik.moshiHW.recyclerView
+package com.nikbrik.moshiHW.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.nikbrik.moshiHW.R
 import com.nikbrik.moshiHW.databinding.FragmentListBinding
 import com.nikbrik.moshiHW.extensions.autoCleared
-import com.nikbrik.moshiHW.mvvm.MoshiHwViewModel
 
 class ListFragment : Fragment(R.layout.fragment_list) {
     private var binding: FragmentListBinding? = null
@@ -55,8 +54,7 @@ class ListFragment : Fragment(R.layout.fragment_list) {
     }
 
     private fun backToSearchFragment(repeat: Boolean) {
-        val actionDetail =
-            ListFragmentDirections.actionListFragmentToSearchFragment()
+        val actionDetail = ListFragmentDirections.actionListFragmentToSearchFragment()
         actionDetail.repeat = repeat
         findNavController().navigate(actionDetail)
     }

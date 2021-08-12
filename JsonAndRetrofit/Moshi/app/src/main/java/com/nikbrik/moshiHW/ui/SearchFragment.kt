@@ -1,4 +1,4 @@
-package com.nikbrik.moshiHW.app
+package com.nikbrik.moshiHW.ui
 
 import android.os.Bundle
 import android.os.Handler
@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.nikbrik.moshiHW.R
 import com.nikbrik.moshiHW.databinding.FragmentSearchBinding
-import com.nikbrik.moshiHW.mvvm.MoshiHwViewModel
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private var binding: FragmentSearchBinding? = null
@@ -82,17 +81,19 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 autoCompleteText.text.toString(),
             ) { errorMessage ->
                 // Действие навигации нужно выполнить на главном потоке
-                Handler(Looper.getMainLooper()).post {
-                    findNavController().navigate(
-                        SearchFragmentDirections.actionSearchFragmentToListFragment(
-                            errorMessage
+                Handler(Looper.getMainLooper()).postDelayed(
+                    {
+                        findNavController().navigate(
+                            SearchFragmentDirections.actionSearchFragmentToListFragment(
+                                errorMessage
+                            )
                         )
-                    )
-                }
+                        setScreenState(true)
+                    },
+                    1000
+                )
             }
         }
-
-        setScreenState(true)
     }
 
     private fun saveViewData() {

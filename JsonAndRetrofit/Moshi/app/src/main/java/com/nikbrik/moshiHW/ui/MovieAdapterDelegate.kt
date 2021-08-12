@@ -1,9 +1,10 @@
-package com.nikbrik.moshiHW.recyclerView
+package com.nikbrik.moshiHW.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
 import com.nikbrik.moshiHW.databinding.FragmentMovieBinding
+import com.nikbrik.moshiHW.recyclerView.ExtendedMovie
 
 class MovieAdapterDelegate : AbsListItemAdapterDelegate<ExtendedMovie, ExtendedMovie, MovieHolder>() {
     override fun isForViewType(item: ExtendedMovie, items: MutableList<ExtendedMovie>, position: Int): Boolean {

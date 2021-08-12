@@ -1,7 +1,8 @@
-package com.nikbrik.moshiHW.recyclerView
+package com.nikbrik.moshiHW.ui
 
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
+import com.nikbrik.moshiHW.recyclerView.ExtendedMovie
 
 class MovieAdapter : AsyncListDifferDelegationAdapter<ExtendedMovie>(MovieItemCallback()) {
 

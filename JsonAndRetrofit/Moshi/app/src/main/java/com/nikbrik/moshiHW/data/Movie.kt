@@ -65,7 +65,19 @@ enum class Rated {
     R,
 
     @Json(name = "NC-17")
-    NC_17
+    NC_17,
+
+    @Json(name = "Approved")
+    AP,
+
+    @Json(name = "TV-G")
+    TV_G,
+
+    @Json(name = "TV-PG")
+    TV_PG,
+
+    @Json(name = "Not Rated")
+    NR,
 }
 
 @JsonClass(generateAdapter = true)

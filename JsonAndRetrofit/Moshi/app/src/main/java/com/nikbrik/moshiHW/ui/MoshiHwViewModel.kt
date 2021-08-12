@@ -1,8 +1,9 @@
-package com.nikbrik.moshiHW.mvvm
+package com.nikbrik.moshiHW.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.nikbrik.moshiHW.data.MoshiHwRepository
 import com.nikbrik.moshiHW.recyclerView.ExtendedMovie
 
 class MoshiHwViewModel : ViewModel() {

@@ -1,6 +1,5 @@
-package com.nikbrik.moshiHW.mvvm
+package com.nikbrik.moshiHW.data
 
-import com.nikbrik.moshiHW.RatingCustomAdapter
 import com.nikbrik.moshiHW.network.Networking
 import com.nikbrik.moshiHW.recyclerView.ExtendedMovie
 import com.nikbrik.moshiHW.recyclerView.Movie

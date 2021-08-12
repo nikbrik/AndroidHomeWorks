@@ -1,10 +1,12 @@
-package com.nikbrik.moshiHW.recyclerView
+package com.nikbrik.moshiHW.ui
 
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.nikbrik.moshiHW.R
 import com.nikbrik.moshiHW.databinding.FragmentMovieBinding
+import com.nikbrik.moshiHW.recyclerView.ExtendedMovie
+import com.nikbrik.moshiHW.recyclerView.Rated
 import com.squareup.moshi.Moshi
 import timber.log.Timber
 
