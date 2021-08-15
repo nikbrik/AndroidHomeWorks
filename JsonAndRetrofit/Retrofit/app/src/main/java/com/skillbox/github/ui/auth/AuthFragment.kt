@@ -2,10 +2,11 @@ package com.skillbox.github.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import com.skillbox.github.R
 import com.skillbox.github.utils.toast
@@ -16,24 +17,24 @@ import net.openid.appauth.AuthorizationResponse
 class AuthFragment : Fragment(R.layout.fragment_auth) {
 
     private val viewModel: AuthViewModel by viewModels()
+    private val openAuthPageContract =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            result?.data?.let { openAuthPageCallback(it) }
+        }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         bindViewModel()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == AUTH_REQUEST_CODE && data != null) {
-            val tokenExchangeRequest = AuthorizationResponse.fromIntent(data)
-                ?.createTokenExchangeRequest()
-            val exception = AuthorizationException.fromIntent(data)
-            when {
-                tokenExchangeRequest != null && exception == null ->
-                    viewModel.onAuthCodeReceived(tokenExchangeRequest)
-                exception != null -> viewModel.onAuthCodeFailed(exception)
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
+    private fun openAuthPageCallback(data: Intent) {
+        val tokenExchangeRequest = AuthorizationResponse.fromIntent(data)
+            ?.createTokenExchangeRequest()
+        val exception = AuthorizationException.fromIntent(data)
+        when {
+            tokenExchangeRequest != null && exception == null ->
+                viewModel.onAuthCodeReceived(tokenExchangeRequest)
+            exception != null -> viewModel.onAuthCodeFailed(exception)
         }
     }
 
@@ -53,10 +54,6 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
     }
 
     private fun openAuthPage(intent: Intent) {
-        startActivityForResult(intent, AUTH_REQUEST_CODE)
-    }
-
-    companion object {
-        private const val AUTH_REQUEST_CODE = 342
+        openAuthPageContract.launch(intent)
     }
 }
