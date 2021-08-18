@@ -32,21 +32,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21bc32ea-0bdd-45de-802b-d5b6b63f846f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/Extensions.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fragments_1/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Fragments_1/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_2/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/ListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/ListFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/java/com/nikbrik/lists/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_2/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/detail/DetailFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/repository_list/RepositoryAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/repository_list/RepositoryDelegate.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/repository_list/RepositoryHolder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/res/layout/fragment_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/data/GithubAppRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/data/GithubAppRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/network/GithubApiInterface.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/network/GithubApiInterface.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/network/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/network/Repository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/current_user/CurrentUserFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/current_user/CurrentUserFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/repository_list/ListRepositoryViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/repository_list/ListRepositoryViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/repository_list/RepositoryListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/java/com/skillbox/github/ui/repository_list/RepositoryListFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/res/layout/fragment_repository.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/res/layout/fragment_repository.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Retrofit/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lists_2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\nikbr\.android\avd\Pixel_3a_API_30_x86.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\nikbrik\.android\avd\Pixel_2_API_24.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -102,6 +116,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="VirtualDevicePath@C:\Users\nikbr\.android\avd\Pixel_3a_API_30_x86.avd" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-04-23T13:34:02.255029100Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android-custom-viewC:/Users/Shuteev_N/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.0/3e159bfab49c7e6495fe374e6e5e1e989ee21dcf/recyclerview-1.2.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
     <property name="android-custom-viewC:/Users/nikbr/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.2.0/3e159bfab49c7e6495fe374e6e5e1e989ee21dcf/recyclerview-1.2.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
@@ -114,7 +129,7 @@
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="emulator" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Default Config" />
@@ -208,7 +223,9 @@
         </option>
         <option name="vmOptions" value="" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="Lists_1 [tasks]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -227,7 +244,9 @@
         </option>
         <option name="vmOptions" value="" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="Lists_1 [wrapper]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -246,7 +265,9 @@
         </option>
         <option name="vmOptions" value="" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="Lists_1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -263,7 +284,9 @@
         </option>
         <option name="vmOptions" value="" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
@@ -300,105 +323,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="200" y="110" key="#PSD" timestamp="1619197914717">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="200" y="110" key="#PSD/0.0.1366.728@0.0.1366.728" timestamp="1619197914717" />
-    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1618168603766">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="474" y="79" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1618168603766" />
-    <state x="429" y="198" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1619198458448">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="429" y="198" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1619198458448" />
-    <state x="-166" y="112" width="1182" height="544" key="AVDManager" timestamp="1619184255100">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="-166" y="112" width="1182" height="544" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1619184255100" />
-    <state x="263" y="118" key="AndroidCreateResourceFileDialog" timestamp="1618396659057">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="263" y="118" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1618396659057" />
-    <state x="499" y="299" key="AndroidCreateXmlResourceDialog" timestamp="1619193789171">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="499" y="299" key="AndroidCreateXmlResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1619193789171" />
-    <state x="475" y="110" key="AndroidProcessChooserDialog" timestamp="1618381879950">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="475" y="110" key="AndroidProcessChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1618381879950" />
-    <state width="424" height="438" key="DebuggerActiveHint" timestamp="1618918877446">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="424" height="438" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1618918877446" />
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1618917587396">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1618917587396" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1619199614153">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619199614153" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1619199614153">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1619199614153" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1619199614153">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1619199614153" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1619199614153">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1619199614153" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.1.bottom" timestamp="1619199614153">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619199614153" />
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state width="1323" height="179" key="GridCell.Tab.1.center" timestamp="1619199614153">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1619199614153" />
-    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state width="1323" height="179" key="GridCell.Tab.1.left" timestamp="1619199614153">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1619199614153" />
-    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509228" />
-    <state width="1323" height="179" key="GridCell.Tab.1.right" timestamp="1619199614153">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1323" height="179" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1619199614153" />
-    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1618368509229" />
-    <state x="184" y="8" key="SettingsEditor" timestamp="1618907914076">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="184" y="8" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1618907914076" />
-    <state x="499" y="141" key="chooseDestDirectoryDialog" timestamp="1618932841076">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="499" y="141" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1618932841076" />
-    <state x="526" y="136" key="refactoring.ChangeSignatureDialog" timestamp="1618135836290">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="526" y="136" key="refactoring.ChangeSignatureDialog/0.0.1366.728@0.0.1366.728" timestamp="1618135836290" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1618898334185">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1618898334185" />
-    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1619530469785">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1619530469785" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1618368340014" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

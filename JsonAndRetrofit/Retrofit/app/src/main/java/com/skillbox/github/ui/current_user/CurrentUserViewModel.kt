@@ -10,14 +10,14 @@ class CurrentUserViewModel : ViewModel() {
 
     private val repository = GithubAppRepository()
 
-    private val userLiveData = MutableLiveData<User>()
-    val user: LiveData<User>
+    private val userLiveData = MutableLiveData<User?>()
+    val user: LiveData<User?>
         get() = userLiveData
 
     fun getCurrentUserInfo() {
         repository.getUser(
             onSuccess = { userLiveData.postValue(it) },
-            onError = {},
+            onError = { userLiveData.postValue(null) },
         )
     }
 }

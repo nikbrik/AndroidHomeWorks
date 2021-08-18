@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: "org.jmailen.kotlinter"
+apply plugin: 'org.jetbrains.kotlin.plugin.parcelize'
 
 android {
     compileSdkVersion 30
@@ -37,10 +37,6 @@ android {
 
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-
-    androidExtensions {
-        experimental = true
     }
 
     buildFeatures {

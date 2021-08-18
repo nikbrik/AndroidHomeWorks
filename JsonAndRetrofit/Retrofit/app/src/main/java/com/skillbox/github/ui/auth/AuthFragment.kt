@@ -8,13 +8,16 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.skillbox.github.R
+import com.skillbox.github.databinding.FragmentAuthBinding
 import com.skillbox.github.utils.toast
-import kotlinx.android.synthetic.main.fragment_auth.*
 import net.openid.appauth.AuthorizationException
 import net.openid.appauth.AuthorizationResponse
 
 class AuthFragment : Fragment(R.layout.fragment_auth) {
+
+    private val binding: FragmentAuthBinding by viewBinding()
 
     private val viewModel: AuthViewModel by viewModels()
     private val openAuthPageContract =
@@ -39,7 +42,7 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
     }
 
     private fun bindViewModel() {
-        loginButton.setOnClickListener { viewModel.openLoginPage() }
+        binding.loginButton.setOnClickListener { viewModel.openLoginPage() }
         viewModel.loadingLiveData.observe(viewLifecycleOwner, ::updateIsLoading)
         viewModel.openAuthPageLiveData.observe(viewLifecycleOwner, ::openAuthPage)
         viewModel.toastLiveData.observe(viewLifecycleOwner, ::toast)
@@ -49,8 +52,8 @@ class AuthFragment : Fragment(R.layout.fragment_auth) {
     }
 
     private fun updateIsLoading(isLoading: Boolean) {
-        loginButton.isVisible = !isLoading
-        loginProgress.isVisible = isLoading
+        binding.loginButton.isVisible = !isLoading
+        binding.loginProgress.isVisible = isLoading
     }
 
     private fun openAuthPage(intent: Intent) {

@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/android_basic/JsonAndRetrofit/Retrofit/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/android_basic/JsonAndRetrofit/Retrofit/app/src/main/res/layout/fragment_detail.xml" value="0.36666666666666664" />
         <entry key="..\:/android_basic/JsonAndRetrofit/Retrofit/app/src/main/res/layout/fragment_list_repository.xml" value="0.22" />
-        <entry key="..\:/android_basic/JsonAndRetrofit/Retrofit/app/src/main/res/layout/fragment_repository.xml" value="0.4466666666666667" />
+        <entry key="..\:/android_basic/JsonAndRetrofit/Retrofit/app/src/main/res/layout/fragment_repository.xml" value="0.3333333333333333" />
         <entry key="..\:/android_basic/JsonAndRetrofit/Retrofit/app/src/main/res/layout/fragment_user.xml" value="0.22" />
       </map>
     </option>

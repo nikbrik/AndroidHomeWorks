@@ -5,4 +5,5 @@
     <string name="auth_login">Войти</string>
     <string name="auth_canceled">Аутентификация не выполнена</string>
     <string name="private_word">private</string>
+    <string name="star">star</string>
 </resources>
