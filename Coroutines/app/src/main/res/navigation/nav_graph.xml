@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.skillbox.github.ui.auth.AuthFragment"
+        android:name="com.skillbox.CoroutinesApp.ui.auth.AuthFragment"
         android:label="AuthFragment"
         tools:layout="@layout/fragment_auth">
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.skillbox.github.ui.main.MainFragment"
+        android:name="com.skillbox.CoroutinesApp.ui.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -30,11 +30,11 @@
     </fragment>
     <fragment
         android:id="@+id/currentUserFragment"
-        android:name="com.skillbox.github.ui.current_user.CurrentUserFragment"
+        android:name="com.skillbox.CoroutinesApp.ui.current_user.CurrentUserFragment"
         android:label="CurrentUserFragment" />
     <fragment
         android:id="@+id/repositoryListFragment"
-        android:name="com.skillbox.github.ui.repository_list.RepositoryListFragment"
+        android:name="com.skillbox.CoroutinesApp.ui.repository_list.RepositoryListFragment"
         android:label="RepositoryListFragment" >
         <action
             android:id="@+id/action_repositoryListFragment_to_detailFragment"
@@ -42,10 +42,10 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.skillbox.github.ui.detail.DetailFragment"
+        android:name="com.skillbox.CoroutinesApp.ui.detail.DetailFragment"
         android:label="DetailFragment" >
         <argument
             android:name="repository"
-            app:argType="com.skillbox.github.network.Repository" />
+            app:argType="com.skillbox.CoroutinesApp.network.Repository" />
     </fragment>
 </navigation>
