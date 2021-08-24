@@ -3,8 +3,10 @@ package com.skillbox.CoroutinesApp.ui.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.skillbox.CoroutinesApp.data.GithubAppRepository
 import com.skillbox.CoroutinesApp.network.Repository
+import kotlinx.coroutines.launch
 
 class DetailViewModel : ViewModel() {
     private val githubAppRepository = GithubAppRepository()
@@ -14,19 +16,23 @@ class DetailViewModel : ViewModel() {
         get() = starredEventLiveData
 
     fun isStarred(repository: Repository) {
-        githubAppRepository.repositoryIsStarred(
-            repository,
-            onSuccess = { starredEventLiveData.postValue(it) },
-            onError = { starredEventLiveData.postValue(false) },
-        )
+        viewModelScope.launch {
+            starredEventLiveData.postValue(
+                githubAppRepository.repositoryIsStarred(
+                    repository,
+                )
+            )
+        }
     }
 
     fun setStar(repository: Repository, put: Boolean) {
-        githubAppRepository.setStar(
-            repository,
-            put,
-            onSuccess = { starredEventLiveData.postValue(it) },
-            onError = { }
-        )
+        viewModelScope.launch {
+            starredEventLiveData.postValue(
+                githubAppRepository.setStar(
+                    repository,
+                    put,
+                )
+            )
+        }
     }
 }

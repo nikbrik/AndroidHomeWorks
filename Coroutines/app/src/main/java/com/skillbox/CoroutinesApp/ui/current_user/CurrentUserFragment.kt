@@ -43,5 +43,17 @@ class CurrentUserFragment : Fragment(R.layout.fragment_user) {
                 }
             }
         )
+        viewModel.followers.observe(
+            viewLifecycleOwner,
+            { followers ->
+                binding.followers.text = followers.toString()
+            }
+        )
+        viewModel.error.observe(
+            viewLifecycleOwner,
+            { errorMessage ->
+                binding.followers.text = errorMessage
+            }
+        )
     }
 }
