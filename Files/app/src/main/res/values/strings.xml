@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">FilesApp</string>
+    <string name="run">Run</string>
+    <string name="shared_preference">Shared Preference</string>
+    <string name="data_store">Data Store</string>
+    <string name="ext_stor_not_mounted">External storage not mounted</string>
+    <string name="file_created">Файл уже был скачан</string>
+    <string name="file_downloaded">Файл %1s успешно загружен</string>
 </resources>

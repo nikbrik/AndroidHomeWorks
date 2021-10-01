@@ -8,7 +8,6 @@
         android:title="@string/search"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView"
-        android:iconTint="@color/white"
         app:iconTint="@color/white"/>
     <item
         android:id="@+id/action_1"
@@ -22,7 +21,6 @@
         <item
             android:id="@+id/action_3"
             android:icon="@drawable/ic_baseline_extension_24"
-            android:iconTint="@color/white"
             android:title="@string/action_3"
             app:iconTint="@color/white"
             app:showAsAction="ifRoom" />

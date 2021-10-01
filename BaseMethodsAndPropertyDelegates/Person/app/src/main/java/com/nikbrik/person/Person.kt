@@ -20,7 +20,7 @@ class PersonAnimalsReader : ReadOnlyProperty<Person, HashSet<Animal>>{
 
 class Person(val height:Int, val weight:Int, val name:String) {
 
-    private val pets by PersonAnimalsReader()
+    private val pets by lazy {  }
 
     fun buyPet(){
         pets.add(
