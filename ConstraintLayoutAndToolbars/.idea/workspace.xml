@@ -23,37 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3c6b17f-1033-4b1d-bbab-1508af964de8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Files/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/app/src/main/assets/links.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/app/src/main/java/com/nikbrik/filesapp/extensions/ext.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/app/src/main/java/com/nikbrik/filesapp/main/MainFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/app/src/main/java/com/nikbrik/filesapp/network/GithubApi.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/app/src/main/java/com/nikbrik/filesapp/network/Networking.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/app/src/main/res/layout/fragment_main.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Files/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PermissionsAndDate/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Coroutines/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Files/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Files/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Files/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Files/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Files/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Files/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Files/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Files/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Files/app/src/main/java/com/nikbrik/filesapp/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Files/app/src/main/java/com/nikbrik/filesapp/main/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Files/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Files/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Files/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Files/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Files/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Files/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fragments_2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Fragments_2/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fragments_2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Fragments_2/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Fragments_2/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Moshi/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Moshi/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JsonAndRetrofit/Moshi/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../JsonAndRetrofit/Moshi/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_2/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_2/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists_2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists_2/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PermissionsAndDate/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PermissionsAndDate/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PermissionsAndDate/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PermissionsAndDate/app/src/main/java/com/nikbrik/permissionsanddate/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../PermissionsAndDate/app/src/main/java/com/nikbrik/permissionsanddate/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ContentProvider/ContactBook/app/src/main/java/com/nikbrik/contactbook/CommonExtensions.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ContentProvider/ContactBook/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ContentProvider/ContactBook/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ContentProvider/ContactBook/app/src/main/java/com/nikbrik/contactbook/ContactsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../ContentProvider/ContactBook/app/src/main/java/com/nikbrik/contactbook/ContactsFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ContentProvider/ContactBook/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ContentProvider/ContactBook/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ContentProvider/ContactBook/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ContentProvider/ContactBook/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +46,10 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/02_Toolbar" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

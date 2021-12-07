@@ -47,4 +47,15 @@ dependencies {
 
     implementation 'com.github.kirich1409:viewbindingpropertydelegate:1.4.7'
 
+    //Permissions
+    implementation "org.permissionsdispatcher:permissionsdispatcher-ktx:1.0.1"
+
+    val lifecycle_version = "2.4.0-rc01"
+    val arch_version = "2.1.0"
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+
 }
